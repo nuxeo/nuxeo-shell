@@ -1,0 +1,15 @@
+<projectDescription>
+  <name>nuxeo-shell-automation</name>
+  <comment>Automation Shell provides a command line client that is using automation to invoke a remove nuxeo server.</comment>
+  <projects>
+    <project>nuxeo-shell-core</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>

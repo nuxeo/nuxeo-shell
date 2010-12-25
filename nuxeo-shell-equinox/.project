@@ -1,0 +1,15 @@
+<projectDescription>
+  <name>nuxeo-shell-equinox</name>
+  <comment>Equinox Shell provides a remote shell to the Equinox console.</comment>
+  <projects>
+    <project>nuxeo-shell-core</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>
