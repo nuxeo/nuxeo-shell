@@ -15,7 +15,6 @@
   <packaging>jar</packaging>
 
   <properties>
-    <nuxeo.server.version>5.4.1-SNAPSHOT</nuxeo.server.version>
 	<!-- jar signing: this is a dev mode config - should not be used in prod -->
     <keystore.path>nuxeo-shell-dev.jks</keystore.path>
     <keystore.type>JKS</keystore.type>
