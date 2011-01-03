@@ -63,23 +63,6 @@
 
 
   <build>
-    <pluginManagement>
-      <plugins>
-      <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <configuration>
-            <archive>
-              <index>true</index>
-              <manifest>
-                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              </manifest>
-            </archive>
-          </configuration>
-      </plugin>
-      </plugins>
-    </pluginManagement>
-
     <!-- include resources in src directory -->
     <resources>
       <resource>

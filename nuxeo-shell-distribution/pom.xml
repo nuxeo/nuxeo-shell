@@ -8,9 +8,9 @@
     <version>1.0-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
-  <artifactId>nuxeo-shell-distribution</artifactId>
-  <name>Nuxeo Shell Distribution</name>
-  <description>Meta project to build various all-in-one distributions of Nuxeo Shell.</description>
+  <artifactId>nuxeo-shell</artifactId>
+  <name>Nuxeo Shell</name>
+  <description>Meta project to build the all-in-one distribution of Nuxeo Shell.</description>
   <!-- need jar packaging to have the shaded plugin working correctly -->
   <packaging>jar</packaging>
   <properties>
@@ -77,18 +77,12 @@
       <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>2.3</version>
           <configuration>
             <archive>
-              <manifestFile>
-                src/main/resources/META-INF/MANIFEST.MF
-              </manifestFile>
-              <manifestEntries>
-                <Specification-Version>${nuxeo.server.version}</Specification-Version>
-                <Implementation-Title>Nuxeo Shell</Implementation-Title>
-                <Implementation-Version>${project.version}</Implementation-Version>
-                <Implementation-Vendor>Nuxeo</Implementation-Vendor>
-              </manifestEntries>
+              <index>true</index>
+              <manifest>
+                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
             </archive>
           </configuration>
       </plugin>
@@ -106,7 +100,8 @@
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
               </transformers>
-              <finalName>nuxeo-shell-${project.version}</finalName>
+              <!--finalName>nuxeo-shell-${project.version}</finalName-->
+              <createSourcesJar>true</createSourcesJar>
               <createDependencyReducedPom>false</createDependencyReducedPom>
               <keepDependenciesWithProvidedScope>true</keepDependenciesWithProvidedScope>
               <shadedArtifactAttached>false</shadedArtifactAttached>

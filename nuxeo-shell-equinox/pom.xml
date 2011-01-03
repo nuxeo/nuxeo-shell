@@ -11,9 +11,6 @@
   <artifactId>nuxeo-shell-equinox</artifactId>
   <name>Nuxeo Equinox Shell</name>
   <description>Equinox Shell provides a remote shell to the Equinox console.</description>
-  <properties>
-    <nuxeo.server.version>5.4.1-SNAPSHOT</nuxeo.server.version>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>org.nuxeo.shell</groupId>

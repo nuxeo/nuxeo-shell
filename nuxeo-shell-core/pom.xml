@@ -11,9 +11,6 @@
   <artifactId>nuxeo-shell-core</artifactId>
   <name>Nuxeo Shell Core</name>
   <description>Provides the shell infrastructure.</description>
-  <properties>
-    <nuxeo.server.version>5.4.1-SNAPSHOT</nuxeo.server.version>
-  </properties>
   <dependencies>
     <dependency>
       <groupId>jline</groupId>
