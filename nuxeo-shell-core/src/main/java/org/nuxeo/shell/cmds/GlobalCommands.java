@@ -20,7 +20,7 @@ import org.nuxeo.shell.CommandRegistry;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public class GlobalCommands extends CommandRegistry {
 
@@ -36,6 +36,7 @@ public class GlobalCommands extends CommandRegistry {
         addAnnotatedCommand(Trace.class);
         addAnnotatedCommand(Version.class);
         addAnnotatedCommand(Settings.class);
+        addAnnotatedCommand(Install.class);
     }
 
     @Override

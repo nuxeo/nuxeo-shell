@@ -32,9 +32,9 @@ import org.nuxeo.shell.ShellFeature;
 import org.nuxeo.shell.fs.cmds.FileSystemCommands;
 
 /**
- * 
+ *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public class FileSystem implements ShellFeature {
 
@@ -223,6 +223,48 @@ public class FileSystem implements ShellFeature {
             result.add(lastLine.toString());
         }
         return result;
+    }
+
+    public static String readFile(File file) throws IOException {
+        FileInputStream in = null;
+        try {
+            in = new FileInputStream(file);
+            return read(in);
+        } finally {
+            if (in != null) {
+                in.close();
+            }
+        }
+    }
+
+    public static String read(InputStream in) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        byte[] buffer = createBuffer(in.available());
+        try {
+            int read;
+            while ((read = in.read(buffer)) != -1) {
+                sb.append(new String(buffer, 0, read));
+            }
+        } finally {
+            in.close();
+        }
+        return sb.toString();
+    }
+
+    public static void writeFile(File file, byte[] buf) throws IOException {
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(file);
+            fos.write(buf);
+        } finally {
+            if (fos != null) {
+                fos.close();
+            }
+        }
+    }
+
+    public static void writeFile(File file, String buf) throws IOException {
+        writeFile(file, buf.getBytes());
     }
 
     private static final int BUFFER_SIZE = 1024 * 64; // 64K
