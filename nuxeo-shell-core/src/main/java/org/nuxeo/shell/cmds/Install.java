@@ -47,6 +47,7 @@ public class Install implements Runnable {
                 shell.getConsole().println(getShellScript());
             } else {
                 FileSystem.writeFile(file, getShellScript());
+                file.setExecutable(true);
             }
         } catch (Exception e) {
             throw new ShellException("Failed to install shell script", e);
@@ -58,7 +59,6 @@ public class Install implements Runnable {
         String content = FileSystem.read(in);
         URL url = Install.class.getProtectionDomain().getCodeSource().getLocation();
         String path = new File(url.toURI()).getAbsolutePath();
-        content.replace("%SHELL_JAR%", path);
-        return content;
+        return content.replace("%SHELL_JAR%", path);
     }
 }

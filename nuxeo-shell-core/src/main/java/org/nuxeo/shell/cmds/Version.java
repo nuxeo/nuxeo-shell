@@ -22,7 +22,7 @@ import org.nuxeo.shell.Shell;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "version", help = "Print Nuxeo Shell Version")
 public class Version implements Runnable {
@@ -31,23 +31,20 @@ public class Version implements Runnable {
     Shell shell;
 
     public void run() {
-        shell.getConsole().println(getShellVersionMessage());
-        shell.getConsole().println(getServerVersionMessage());
+        shell.getConsole().println(getVersionMessage());
     }
 
-    public static String getShellVersionMessage() {
-        return "Nuxeo Shell Version: " + getShellVersion();
-    }
-
-    public static String getServerVersionMessage() {
-        return "Nuxeo Server Minimal Version: " + getServerVersion();
+    public static String getVersionMessage() {
+        StringBuilder buf = new StringBuilder();
+        String crlf = System.getProperty("line.separator");
+        for (String v : Shell.get().getVersions()) {
+            buf.append(v).append(crlf);
+        }
+        return buf.toString();
     }
 
     public static String getShellVersion() {
         return Shell.class.getPackage().getImplementationVersion();
     }
 
-    public static String getServerVersion() {
-        return Shell.class.getPackage().getSpecificationVersion();
-    }
 }

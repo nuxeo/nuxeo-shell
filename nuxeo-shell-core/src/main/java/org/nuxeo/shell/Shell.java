@@ -45,18 +45,18 @@ import org.nuxeo.shell.impl.DefaultValueAdapter;
 import org.nuxeo.shell.utils.StringUtils;
 
 /**
- * 
+ *
  * There is a single instance of the shell in the VM. To get it call
  * {@link Shell#get()}.
- * 
+ *
  * parse args if no cmd attempt to read from stdin a list of cmds or from a
  * faile -f if cmd run it. A cmd line instance is parsing a single command.
  * parsed data is injected into the command and then the command is run. a cmd
  * type is providing the info on how a command is injected. top level params
  * are: -h help -u username -p password -f batch file - batch from stdin
- * 
+ *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public final class Shell {
 
@@ -107,6 +107,11 @@ public final class Shell {
 
     protected Map<Class<?>, ShellFeature> features;
 
+    /**
+     * A list with all version lines to be displayed when version command is executed.
+     */
+    protected List<String> versions;
+
     private Shell() {
         if (shell != null) {
             throw new ShellException("Shell already loaded");
@@ -127,12 +132,17 @@ public final class Shell {
         adapter = new CompositeValueAdapter();
         console = createConsole();
         completorProvider = new CompositeCompletorProvider();
-
+        versions = new ArrayList<String>();
+        versions.add("Nuxeo Shell Version: " + Version.getShellVersion());
         addCompletorProvider(new DefaultCompletorProvider());
         addValueAdapter(new DefaultValueAdapter());
         addRegistry(GlobalCommands.INSTANCE);
         addRegistry(ConfigurationCommands.INSTANCE);
         loadFeatures();
+    }
+
+    public List<String> getVersions() {
+        return versions;
     }
 
     public void addConfigurationListener(ShellConfigurationListener listener) {
@@ -247,8 +257,7 @@ public final class Shell {
         mainArgs = collectArgs(args);
         String v = mainArgs.get("--version");
         if (v != null) {
-            System.out.println(Version.getShellVersionMessage());
-            System.out.println(Version.getServerVersionMessage());
+            System.out.println(Version.getVersionMessage());
             return;
         }
         loadConfig();
@@ -429,7 +438,7 @@ public final class Shell {
 
     /**
      * Mark an already registered command registry as the active one.
-     * 
+     *
      * @param name
      * @return
      */

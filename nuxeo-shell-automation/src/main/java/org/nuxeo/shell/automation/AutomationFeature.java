@@ -16,6 +16,8 @@
  */
 package org.nuxeo.shell.automation;
 
+import java.io.InputStream;
+
 import jline.Completor;
 
 import org.nuxeo.ecm.automation.client.jaxrs.Session;
@@ -26,6 +28,7 @@ import org.nuxeo.shell.CommandRegistry;
 import org.nuxeo.shell.CommandType;
 import org.nuxeo.shell.CompletorProvider;
 import org.nuxeo.shell.Shell;
+import org.nuxeo.shell.ShellException;
 import org.nuxeo.shell.ShellFeature;
 import org.nuxeo.shell.ValueAdapter;
 import org.nuxeo.shell.automation.cmds.OperationCommandType;
@@ -51,6 +54,7 @@ public class AutomationFeature implements ShellFeature, ValueAdapter,
         shell.addCompletorProvider(this);
         shell.addValueAdapter(this);
         shell.addRegistry(RemoteCommands.INSTANCE);
+        shell.getVersions().add("Nuxeo Server Minimal Version: "+getNuxeoServerVersion());
     }
 
     public HttpAutomationClient connect(String url, String username,
@@ -140,6 +144,19 @@ public class AutomationFeature implements ShellFeature, ValueAdapter,
         @Override
         public String getDescription() {
             return "Commands exposed by the Nuxeo Server through automation";
+        }
+    }
+
+    public static String getNuxeoServerVersion() {
+        try {
+            InputStream in = AutomationFeature.class.getClassLoader().getResourceAsStream("META-INF/nuxeo.version");
+            if (in != null) {
+                return org.nuxeo.shell.fs.FileSystem.read(in).trim();
+            } else {
+                return "Unknown";
+            }
+        } catch (Exception e) {
+            throw new ShellException("Failed to read server version", e);
         }
     }
 
