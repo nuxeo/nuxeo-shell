@@ -13,9 +13,18 @@
   <description>Meta project to build the all-in-one distribution of Nuxeo Shell.</description>
   <!-- need jar packaging to have the shaded plugin working correctly -->
   <packaging>jar</packaging>
+
   <properties>
     <nuxeo.server.version>5.4.1-SNAPSHOT</nuxeo.server.version>
+	<!-- jar signing: this is a dev mode config - should not be used in prod -->
+    <keystore.path>nuxeo-shell-dev.jks</keystore.path>
+    <keystore.type>JKS</keystore.type>
+    <keystore.alias>nuxeo-shell-dev</keystore.alias>
+    <keystore.password>nuxeodev</keystore.password>
+    <keystore.store.password>${keystore.password}</keystore.store.password>
+    <keystore.key.password>${keystore.password}</keystore.key.password>
   </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.nuxeo.shell</groupId>
@@ -122,6 +131,25 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jarsigner-plugin</artifactId>
+        <version>1.2</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <storetype>${keystore.type}</storetype>
+          <keystore>${keystore.path}</keystore>
+          <alias>${keystore.alias}</alias>
+          <storepass>${keystore.store.password}</storepass>
+          <keypass>${keystore.key.password}</keypass>
+        </configuration>
       </plugin>
     </plugins>
   </build>
