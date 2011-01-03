@@ -1,31 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.nuxeo.ecm.automation</groupId>
     <artifactId>nuxeo-automation-parent</artifactId>
     <version>5.4.1-SNAPSHOT</version>
   </parent>
-
   <properties>
     <nuxeo.version>5.4.1-SNAPSHOT</nuxeo.version>
   </properties>
-
   <groupId>org.nuxeo.shell</groupId>
   <artifactId>nuxeo-shell-parent</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>Nuxeo Shell</name>
   <description>Nuxeo Shell is providing a command line interface to Nuxeo Servers</description>
   <packaging>pom</packaging>
-
   <modules>
     <module>nuxeo-shell-core</module>
     <module>nuxeo-shell-automation</module>
     <module>nuxeo-shell-equinox</module>
     <module>nuxeo-shell-distribution</module>
   </modules>
-
+  <profiles>
+    <profile>
+        <!-- development profile - do not use it in production mode -->
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <keystore.path>nuxeo-shell-dev.jks</keystore.path>
+        <keystore.type>JKS</keystore.type>
+        <keystore.alias>nuxeo-shell-dev</keystore.alias>
+        <keystore.password>nuxeodev</keystore.password>
+        <keystore.store.password>${keystore.password}</keystore.store.password>
+        <keystore.key.password>${keystore.password}</keystore.key.password>
+      </properties>
+    </profile>
+    <profile>
+      <id>prod</id>
+      <properties>
+        <!-- TODO: replace this with prod. keystore -->
+        <keystore.path>nuxeo.jks</keystore.path>
+        <keystore.type>JKS</keystore.type>
+        <keystore.alias>nuxeo-shell</keystore.alias>
+        <keystore.password>nuxeodev</keystore.password>
+        <keystore.store.password>${keystore.password}</keystore.store.password>
+        <keystore.key.password>${keystore.password}</keystore.key.password>
+      </properties>
+    </profile>
+  </profiles>
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -45,7 +69,6 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-
   <developers>
     <developer>
       <id>bstefanescu</id>
@@ -60,8 +83,6 @@
       <timezone>+1</timezone>
     </developer>
   </developers>
-
-
   <build>
     <!-- include resources in src directory -->
     <resources>
@@ -84,5 +105,4 @@
       </resource>
     </resources>
   </build>
-
 </project>
