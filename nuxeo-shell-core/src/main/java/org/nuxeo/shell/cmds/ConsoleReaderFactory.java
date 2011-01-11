@@ -24,6 +24,6 @@ import jline.ConsoleReader;
  */
 public interface ConsoleReaderFactory {
 
-    public ConsoleReader getConsoleReader();
+    ConsoleReader getConsoleReader();
 
 }

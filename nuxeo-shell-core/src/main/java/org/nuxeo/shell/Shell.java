@@ -63,7 +63,7 @@ public final class Shell {
     /**
      * The shell instance
      */
-    private volatile static Shell shell;
+    private static volatile Shell shell;
 
     public static Shell get() {
         Shell _shell = shell;
@@ -81,7 +81,7 @@ public final class Shell {
     /**
      * Reset the shell instance. Useful for embedded shells like applets.
      */
-    public synchronized static void reset() {
+    public static synchronized void reset() {
         shell = null;
     }
 

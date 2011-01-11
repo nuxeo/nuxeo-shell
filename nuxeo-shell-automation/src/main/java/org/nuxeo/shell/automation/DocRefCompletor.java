@@ -66,7 +66,7 @@ public class DocRefCompletor implements Completor {
                 buffer = path.lastSegment();
                 prefix = path.getParent().toString();
                 cdoc = fetchDocument(prefix);
-                prefix = prefix + '/';
+                prefix += '/';
             }
         }
         if (cdoc == null) {

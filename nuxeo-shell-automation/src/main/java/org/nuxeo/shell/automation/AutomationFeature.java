@@ -45,7 +45,7 @@ import org.nuxeo.shell.cmds.GlobalCommands;
 public class AutomationFeature implements ShellFeature, ValueAdapter,
         CompletorProvider {
 
-    public final static String AUTOMATION_NS = "automation";
+    public static final String AUTOMATION_NS = "automation";
 
     protected RemoteContext ctx;
 

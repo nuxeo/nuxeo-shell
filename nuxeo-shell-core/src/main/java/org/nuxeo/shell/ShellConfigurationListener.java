@@ -24,6 +24,6 @@ package org.nuxeo.shell;
  */
 public interface ShellConfigurationListener {
 
-    public void onConfigurationChange(String name, String value);
+    void onConfigurationChange(String name, String value);
 
 }

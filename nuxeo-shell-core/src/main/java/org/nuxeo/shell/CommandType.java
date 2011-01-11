@@ -27,32 +27,32 @@ import jline.Completor;
  */
 public interface CommandType extends Comparable<CommandType> {
 
-    public Class<?> getCommandClass();
+    Class<?> getCommandClass();
 
-    public String getHelp();
+    String getHelp();
 
-    public String getName();
+    String getName();
 
-    public String[] getAliases();
+    String[] getAliases();
 
-    public List<Token> getArguments();
+    List<Token> getArguments();
 
-    public Map<String, Token> getParameters();
+    Map<String, Token> getParameters();
 
-    public String getSyntax();
+    String getSyntax();
 
-    public Runnable newInstance(Shell shell, String... line)
+    Runnable newInstance(Shell shell, String... line)
             throws ShellException;
 
-    public Completor getLastTokenCompletor(Shell shell, String... line);
+    Completor getLastTokenCompletor(Shell shell, String... line);
 
-    public static interface Setter {
+    interface Setter {
         Class<?> getType();
 
         void set(Object obj, Object value) throws ShellException;
     }
 
-    public static class Token implements Comparable<Token> {
+    class Token implements Comparable<Token> {
 
         public String name;
 

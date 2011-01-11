@@ -24,7 +24,7 @@ import org.nuxeo.shell.CommandRegistry;
  */
 public class GlobalCommands extends CommandRegistry {
 
-    public final static GlobalCommands INSTANCE = new GlobalCommands();
+    public static final GlobalCommands INSTANCE = new GlobalCommands();
 
     public GlobalCommands() {
         super(null, "global");

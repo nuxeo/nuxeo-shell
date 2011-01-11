@@ -25,7 +25,7 @@ import org.nuxeo.shell.Shell;
  */
 public class ConfigurationCommands extends CommandRegistry {
 
-    public final static ConfigurationCommands INSTANCE = new ConfigurationCommands();
+    public static final ConfigurationCommands INSTANCE = new ConfigurationCommands();
 
     public ConfigurationCommands() {
         super(GlobalCommands.INSTANCE, "config");

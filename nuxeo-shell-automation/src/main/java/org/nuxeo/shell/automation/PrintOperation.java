@@ -56,7 +56,7 @@ public class PrintOperation implements Runnable {
             String url = ctx.getClient().getBaseUrl();
             HttpGet get = new HttpGet(url + (name == null ? "" : name));
             if (u != null && p != null) {
-                //TOOD be able to reuse the context of the automation client
+                //TODO be able to reuse the context of the automation client
                 get.setHeader("Authorization", "Basic "+Base64.encode(u+":"+p));
             }
             HttpResponse r = ctx.getClient().http().execute(get);

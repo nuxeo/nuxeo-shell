@@ -48,6 +48,7 @@ public class ShellApplet extends JApplet implements InteractiveShellHandler {
         return args.toArray(new String[args.size()]);
     }
 
+    @Override
     public void init() {
         try {
             Shell.get(); // initialize the shell to get default settings

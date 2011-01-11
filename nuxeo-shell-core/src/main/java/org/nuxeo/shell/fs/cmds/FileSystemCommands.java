@@ -27,7 +27,7 @@ import org.nuxeo.shell.fs.FileSystem;
  */
 public class FileSystemCommands extends CommandRegistry {
 
-    public final static FileSystemCommands INSTANCE = new FileSystemCommands();
+    public static final FileSystemCommands INSTANCE = new FileSystemCommands();
 
     public FileSystemCommands() {
         super(GlobalCommands.INSTANCE, "local");
@@ -54,6 +54,7 @@ public class FileSystemCommands extends CommandRegistry {
         return "Commands available on the local file system";
     }
 
+    @Override
     public String getPrompt(Shell shell) {
         return System.getProperty("user.name") + ":"
                 + shell.getContextObject(FileSystem.class).pwd().getName()

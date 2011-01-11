@@ -39,6 +39,7 @@ public class DocTypeCompletor extends SimpleCompletor {
         this.ctx = ctx;
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public int complete(String buffer, int cursor, List clist) {
         String[] names = new String[] { "Workspace", "Section", "Folder",

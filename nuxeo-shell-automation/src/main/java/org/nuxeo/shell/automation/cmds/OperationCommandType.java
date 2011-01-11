@@ -41,15 +41,15 @@ import org.nuxeo.shell.impl.AbstractCommandType;
  */
 public class OperationCommandType extends AbstractCommandType {
 
-    public final static int TYPE_VOID = 0;
+    public static final int TYPE_VOID = 0;
 
-    public final static int TYPE_DOC = 1;
+    public static final int TYPE_DOC = 1;
 
-    public final static int TYPE_BLOB = 2;
+    public static final int TYPE_BLOB = 2;
 
-    public final static int TYPE_DOCS = 3;
+    public static final int TYPE_DOCS = 3;
 
-    public final static int TYPE_BLOBS = 4;
+    public static final int TYPE_BLOBS = 4;
 
     protected OperationDocumentation op;
 

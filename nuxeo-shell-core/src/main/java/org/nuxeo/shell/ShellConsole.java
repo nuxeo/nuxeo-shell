@@ -22,14 +22,14 @@ package org.nuxeo.shell;
  */
 public interface ShellConsole {
 
-    public static final String CRLF = System.getProperty("line.separator");
+    String CRLF = System.getProperty("line.separator");
 
-    public void print(String msg);
+    void print(String msg);
 
-    public void println(String msg);
+    void println(String msg);
 
-    public void println();
+    void println();
 
-    public String readLine(String prompt, Character mask);
+    String readLine(String prompt, Character mask);
 
 }

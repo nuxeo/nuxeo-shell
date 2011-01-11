@@ -24,6 +24,6 @@ import jline.Completor;
  */
 public interface CompletorProvider {
 
-    public Completor getCompletor(Shell shell, CommandType cmd, Class<?> type);
+    Completor getCompletor(Shell shell, CommandType cmd, Class<?> type);
 
 }

@@ -46,23 +46,28 @@ public class SwingTerminal extends Terminal {
         return false;
     }
 
+    @Override
     public void initializeTerminal() {
         // nothing we need to do (or can do) for windows.
     }
 
+    @Override
     public boolean isEchoEnabled() {
         return true;
     }
 
+    @Override
     public void enableEcho() {
     }
 
+    @Override
     public void disableEcho() {
     }
 
     /**
      * Always returng 80, since we can't access this info on Windows.
      */
+    @Override
     public int getTerminalWidth() {
         return 80;
     }
@@ -70,6 +75,7 @@ public class SwingTerminal extends Terminal {
     /**
      * Always returng 24, since we can't access this info on Windows.
      */
+    @Override
     public int getTerminalHeight() {
         return 80;
     }

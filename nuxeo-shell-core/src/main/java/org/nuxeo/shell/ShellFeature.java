@@ -40,6 +40,6 @@ public interface ShellFeature {
      * 
      * @param shell
      */
-    public void install(Shell shell);
+    void install(Shell shell);
 
 }

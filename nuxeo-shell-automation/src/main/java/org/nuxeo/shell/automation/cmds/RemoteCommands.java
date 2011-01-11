@@ -33,7 +33,7 @@ import org.nuxeo.shell.utils.Path;
  */
 public class RemoteCommands extends CommandRegistry {
 
-    public final static RemoteCommands INSTANCE = new RemoteCommands();
+    public static final RemoteCommands INSTANCE = new RemoteCommands();
 
     public RemoteCommands() {
         super(GlobalCommands.INSTANCE, "remote");
@@ -81,6 +81,7 @@ public class RemoteCommands extends CommandRegistry {
         addAnnotatedCommand(Connect.class);
     }
 
+    @Override
     public String getPrompt(Shell shell) {
         RemoteContext ctx = shell.getContextObject(RemoteContext.class);
         if (ctx == null) {

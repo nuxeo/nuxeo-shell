@@ -350,7 +350,7 @@ public class JFontChooser extends JComponent {
      * @param name the family name of the selected font.
      * 
      * @see getSelectedFontFamily
-     **/
+     */
     public void setSelectedFontFamily(String name) {
         String[] names = getFontFamilies();
         for (int i = 0; i < names.length; i++) {
@@ -435,6 +435,7 @@ public class JFontChooser extends JComponent {
         dialogResultValue = ERROR_OPTION;
         JDialog dialog = createDialog(parent);
         dialog.addWindowListener(new WindowAdapter() {
+            @Override
             public void windowClosing(WindowEvent e) {
                 dialogResultValue = CANCEL_OPTION;
             }
@@ -479,10 +480,12 @@ public class JFontChooser extends JComponent {
             this.textComponent = textComponent;
         }
 
+        @Override
         public void focusGained(FocusEvent e) {
             textComponent.selectAll();
         }
 
+        @Override
         public void focusLost(FocusEvent e) {
             textComponent.select(0, 0);
             updateSampleFont();
@@ -497,6 +500,7 @@ public class JFontChooser extends JComponent {
             this.targetList = list;
         }
 
+        @Override
         public void keyPressed(KeyEvent e) {
             int i = targetList.getSelectedIndex();
             switch (e.getKeyCode()) {
