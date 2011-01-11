@@ -70,19 +70,19 @@
     </dependency>
   </dependencies>
   <build>
-      <plugins>
+    <plugins>
       <!-- needed to add correct Implementation-Version -->
       <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <configuration>
-            <archive>
-              <index>true</index>
-              <manifest>
-                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              </manifest>
-            </archive>
-          </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <index>true</index>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+            </manifest>
+          </archive>
+        </configuration>
       </plugin>
       <!-- needed for building the all in one JAR -->
       <plugin>
@@ -96,14 +96,15 @@
             <configuration>
               <!-- merge services files -->
               <transformers>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                <transformer
+                  implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
               </transformers>
-              <!--finalName>nuxeo-shell-${project.version}</finalName-->
+              <!--finalName>nuxeo-shell-${project.version}</finalName -->
               <createSourcesJar>true</createSourcesJar>
               <createDependencyReducedPom>false</createDependencyReducedPom>
               <keepDependenciesWithProvidedScope>true</keepDependenciesWithProvidedScope>
               <shadedArtifactAttached>false</shadedArtifactAttached>
-              <!--shadedClassifierName>all</shadedClassifierName-->
+              <!--shadedClassifierName>all</shadedClassifierName -->
               <artifactSet>
                 <excludes>
                   <exclude>logkit:logkit</exclude>
