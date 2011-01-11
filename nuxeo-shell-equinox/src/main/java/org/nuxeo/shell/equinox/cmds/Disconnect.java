@@ -23,7 +23,7 @@ import org.nuxeo.shell.equinox.EquinoxFeature;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "disconnect", help = "Diconnect from the remote server")
 public class Disconnect implements Runnable {

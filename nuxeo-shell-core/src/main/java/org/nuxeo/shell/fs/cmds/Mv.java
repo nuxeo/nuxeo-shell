@@ -25,7 +25,7 @@ import org.nuxeo.shell.Shell;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "mv", help = "Rename a file or directory")
 public class Mv implements Runnable {

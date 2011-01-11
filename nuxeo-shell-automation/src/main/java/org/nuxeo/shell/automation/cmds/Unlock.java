@@ -26,7 +26,7 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "unlock", help = "Unlock a document")
 public class Unlock implements Runnable {

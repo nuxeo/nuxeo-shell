@@ -30,7 +30,7 @@ import org.nuxeo.shell.ShellException;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public abstract class AbstractCommandType implements CommandType {
 
@@ -105,7 +105,7 @@ public abstract class AbstractCommandType implements CommandType {
      * The last element in line must be an empty element (e.g. "") if you need
      * the next argument that may match. If the last element is not empty then
      * this element will be returned as an argument or parameter.
-     * 
+     *
      * @param line
      * @return
      */

@@ -31,7 +31,7 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "run", help = "Run a server automation chain that accepts a document or void input")
 public class RunChainWithDoc implements Runnable {

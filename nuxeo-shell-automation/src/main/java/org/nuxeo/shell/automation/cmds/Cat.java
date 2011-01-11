@@ -36,7 +36,7 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "cat", help = "Print document details")
 public class Cat implements Runnable {

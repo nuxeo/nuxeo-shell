@@ -28,7 +28,7 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "tree", help = "List a subtree")
 public class Tree implements Runnable {

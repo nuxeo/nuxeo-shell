@@ -25,7 +25,7 @@ import org.nuxeo.shell.swing.widgets.HistoryFinder;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @SuppressWarnings("serial")
 public class ConsolePanel extends JPanel {

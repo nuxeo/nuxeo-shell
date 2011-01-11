@@ -34,7 +34,7 @@ import org.nuxeo.shell.fs.FileSystem;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "getfiles", help = "Get all the files attahced to a document")
 public class GetBlobs implements Runnable {

@@ -21,9 +21,9 @@ import javax.swing.text.BadLocationException;
 /**
  * The last line in the console - where the user type the commands. Must be
  * instantiated each time a new line is used. (after CRLF)
- * 
+ *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public class CmdLine {
 
@@ -84,7 +84,7 @@ public class CmdLine {
     /**
      * Get the caret position relative to the beginning of the command text (see
      * getCmdStart())
-     * 
+     *
      * @return
      */
     public int getLocalCaretPosition() {
@@ -163,7 +163,7 @@ public class CmdLine {
     /**
      * Get the word from the command line which is near the given relative caret
      * position. Used for completion.
-     * 
+     *
      * @param pos
      * @return
      */

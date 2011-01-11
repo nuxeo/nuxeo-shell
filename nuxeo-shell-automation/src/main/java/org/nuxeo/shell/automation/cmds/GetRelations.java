@@ -31,7 +31,7 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "getrel", help = "Get realtions between two documents")
 public class GetRelations implements Runnable {

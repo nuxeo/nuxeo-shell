@@ -43,9 +43,9 @@ import org.nuxeo.shell.swing.widgets.HistoryFinder;
  * get the command output. All the other detials like typing, auto completion,
  * moving cursor, history etc. is using pure swing code without any transfer
  * between the jline console reader and the swing component.
- * 
+ *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @SuppressWarnings("serial")
 public class Console extends JTextArea implements ConsoleReaderFactory {
@@ -282,7 +282,7 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
 
     /**
      * Return true if should consume the event.
-     * 
+     *
      * @param code
      * @return
      */

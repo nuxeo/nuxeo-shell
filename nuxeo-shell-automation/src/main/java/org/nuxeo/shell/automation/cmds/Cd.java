@@ -24,7 +24,7 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "cd", help = "Change the context document")
 public class Cd implements Runnable {

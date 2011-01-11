@@ -27,7 +27,7 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "rename", help = "Rename a document")
 public class Rename implements Runnable {

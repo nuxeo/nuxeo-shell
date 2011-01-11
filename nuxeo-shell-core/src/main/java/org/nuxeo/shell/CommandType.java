@@ -23,7 +23,7 @@ import jline.Completor;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public interface CommandType extends Comparable<CommandType> {
 

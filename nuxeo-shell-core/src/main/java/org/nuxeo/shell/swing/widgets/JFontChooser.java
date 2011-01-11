@@ -1,21 +1,21 @@
-/* Copyright 2004-2005,2007-2008 Masahiko SAWAI All Rights Reserved. 
+/* Copyright 2004-2005,2007-2008 Masahiko SAWAI All Rights Reserved.
  *
- * Permission is hereby granted, free of charge, to any person obtaining 
- * a copy of this software and associated documentation files (the "Software"), 
- * to deal in the Software without restriction, including without limitation 
- * the rights to use, copy, modify, merge, publish, distribute, sublicense, 
- * and/or sell copies of the Software, and to permit persons to whom 
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom
  * the Software is furnished to do so, subject to the following conditions:
- * 
- * The above copyright notice and this permission notice shall be included 
+ *
+ * The above copyright notice and this permission notice shall be included
  * in all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
- * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL 
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE 
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE
  * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
@@ -69,16 +69,16 @@ import javax.swing.text.Position;
  * The <code>JFontChooser</code> class is a swing component for font selection.
  * This class has <code>JFileChooser</code> like APIs. The following code pops
  * up a font chooser dialog.
- * 
+ *
  * <pre>
  *   JFontChooser fontChooser = new JFontChooser();
  *   int result = fontChooser.showDialog(parent);
  *   if (result == JFontChooser.OK_OPTION)
  *   {
- *   	Font font = fontChooser.getSelectedFont(); 
- *   	System.out.println("Selected Font : " + font);
+ *       Font font = fontChooser.getSelectedFont();
+ *       System.out.println("Selected Font : " + font);
  * }
- * 
+ *
  * <pre>
  **/
 @SuppressWarnings("serial")
@@ -86,21 +86,21 @@ public class JFontChooser extends JComponent {
     // class variables
     /**
      * Return value from <code>showDialog()</code>.
-     * 
+     *
      * @see #showDialog
      **/
     public static final int OK_OPTION = 0;
 
     /**
      * Return value from <code>showDialog()</code>.
-     * 
+     *
      * @see #showDialog
      **/
     public static final int CANCEL_OPTION = 1;
 
     /**
      * Return value from <code>showDialog()</code>.
-     * 
+     *
      * @see #showDialog
      **/
     public static final int ERROR_OPTION = -1;
@@ -170,7 +170,7 @@ public class JFontChooser extends JComponent {
     /**
      * Constructs a <code>JFontChooser</code> object using the given font size
      * array.
-     * 
+     *
      * @param fontSizeStrings the array of font size string.
      **/
     public JFontChooser(String[] fontSizeStrings) {
@@ -280,9 +280,9 @@ public class JFontChooser extends JComponent {
 
     /**
      * Get the family name of the selected font.
-     * 
+     *
      * @return the font family of the selected font.
-     * 
+     *
      * @see #setSelectedFontFamily
      **/
     public String getSelectedFontFamily() {
@@ -292,11 +292,11 @@ public class JFontChooser extends JComponent {
 
     /**
      * Get the style of the selected font.
-     * 
+     *
      * @return the style of the selected font. <code>Font.PLAIN</code>,
      *         <code>Font.BOLD</code>, <code>Font.ITALIC</code>,
      *         <code>Font.BOLD|Font.ITALIC</code>
-     * 
+     *
      * @see java.awt.Font#PLAIN
      * @see java.awt.Font#BOLD
      * @see java.awt.Font#ITALIC
@@ -309,9 +309,9 @@ public class JFontChooser extends JComponent {
 
     /**
      * Get the size of the selected font.
-     * 
+     *
      * @return the size of the selected font
-     * 
+     *
      * @see #setSelectedFontSize
      **/
     public int getSelectedFontSize() {
@@ -332,9 +332,9 @@ public class JFontChooser extends JComponent {
 
     /**
      * Get the selected font.
-     * 
+     *
      * @return the selected font
-     * 
+     *
      * @see #setSelectedFont
      * @see java.awt.Font
      **/
@@ -346,9 +346,9 @@ public class JFontChooser extends JComponent {
 
     /**
      * Set the family name of the selected font.
-     * 
+     *
      * @param name the family name of the selected font.
-     * 
+     *
      * @see getSelectedFontFamily
      */
     public void setSelectedFontFamily(String name) {
@@ -364,11 +364,11 @@ public class JFontChooser extends JComponent {
 
     /**
      * Set the style of the selected font.
-     * 
+     *
      * @param style the size of the selected font. <code>Font.PLAIN</code>,
      *            <code>Font.BOLD</code>, <code>Font.ITALIC</code>, or
      *            <code>Font.BOLD|Font.ITALIC</code>.
-     * 
+     *
      * @see java.awt.Font#PLAIN
      * @see java.awt.Font#BOLD
      * @see java.awt.Font#ITALIC
@@ -386,9 +386,9 @@ public class JFontChooser extends JComponent {
 
     /**
      * Set the size of the selected font.
-     * 
+     *
      * @param size the size of the selected font
-     * 
+     *
      * @see #getSelectedFontSize
      **/
     public void setSelectedFontSize(int size) {
@@ -405,9 +405,9 @@ public class JFontChooser extends JComponent {
 
     /**
      * Set the selected font.
-     * 
+     *
      * @param font the selected font
-     * 
+     *
      * @see #getSelectedFont
      * @see java.awt.Font
      **/
@@ -423,10 +423,10 @@ public class JFontChooser extends JComponent {
 
     /**
      * Show font selection dialog.
-     * 
+     *
      * @param parent Dialog's Parent component.
      * @return OK_OPTION, CANCEL_OPTION or ERROR_OPTION
-     * 
+     *
      * @see #OK_OPTION
      * @see #CANCEL_OPTION
      * @see #ERROR_OPTION

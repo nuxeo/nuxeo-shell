@@ -26,7 +26,7 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "pwd", help = "Print the current context document")
 public class Pwd implements Runnable {

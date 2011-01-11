@@ -32,7 +32,7 @@ import org.nuxeo.shell.ShellException;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public class DefaultCommandType extends AbstractCommandType {
 

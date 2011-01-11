@@ -21,9 +21,9 @@ package org.nuxeo.shell.cmds;
  * started and when exit is required.
  * <p>
  * This is currently used by shell applet to correctly handle start and stop.
- * 
+ *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public interface InteractiveShellHandler {
 
@@ -37,9 +37,9 @@ public interface InteractiveShellHandler {
      * current session. If no handler is defined the Java process will exit with
      * the given code (if <= 0 - normal exit, otherwise an exit with given code
      * is performed).
-     * 
+     *
      * Return true to exit the shell loop, false otherwise.
-     * 
+     *
      * @param code
      */
     boolean exitInteractiveMode(int code);

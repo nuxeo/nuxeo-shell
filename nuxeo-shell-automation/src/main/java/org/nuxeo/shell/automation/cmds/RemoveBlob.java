@@ -27,7 +27,7 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "rmfile", help = "Remove an attached file from a document")
 public class RemoveBlob implements Runnable {

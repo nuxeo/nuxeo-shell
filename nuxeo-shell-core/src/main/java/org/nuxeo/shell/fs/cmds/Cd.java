@@ -27,7 +27,7 @@ import org.nuxeo.shell.fs.FolderCompletor;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "cd", help = "Change the local working directory")
 public class Cd implements Runnable {

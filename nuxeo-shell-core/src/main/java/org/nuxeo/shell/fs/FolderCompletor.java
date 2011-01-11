@@ -28,9 +28,9 @@ import org.nuxeo.shell.Shell;
 /**
  * This is a modified {@link FileNameCompletor} to take into account the current
  * working directory
- * 
+ *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public class FolderCompletor implements Completor {
     @SuppressWarnings("rawtypes")
@@ -81,12 +81,12 @@ public class FolderCompletor implements Completor {
      * enter the matches into the list of <i>candidates</i>. This method can be
      * overridden in a subclass that wants to do more sophisticated file name
      * completion.
-     * 
+     *
      * @param buffer the untranslated buffer
      * @param translated the buffer with common characters replaced
      * @param entries the list of files to match
      * @param candidates the list of candidates to populate
-     * 
+     *
      * @return the offset of the match
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })

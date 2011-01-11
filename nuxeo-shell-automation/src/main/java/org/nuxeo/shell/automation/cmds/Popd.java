@@ -22,7 +22,7 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "popd", help = "Change the context document and pop the document from the navigation stack.")
 public class Popd implements Runnable {

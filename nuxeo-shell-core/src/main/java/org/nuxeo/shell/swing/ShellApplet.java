@@ -27,7 +27,7 @@ import org.nuxeo.shell.cmds.InteractiveShellHandler;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @SuppressWarnings("serial")
 public class ShellApplet extends JApplet implements InteractiveShellHandler {

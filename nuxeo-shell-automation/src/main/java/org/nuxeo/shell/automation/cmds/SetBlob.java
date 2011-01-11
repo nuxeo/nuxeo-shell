@@ -30,7 +30,7 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "putfile", help = "Attach a file to a document")
 public class SetBlob implements Runnable {

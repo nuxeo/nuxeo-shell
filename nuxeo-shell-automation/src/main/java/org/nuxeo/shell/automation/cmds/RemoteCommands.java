@@ -29,7 +29,7 @@ import org.nuxeo.shell.utils.Path;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public class RemoteCommands extends CommandRegistry {
 

@@ -23,7 +23,7 @@ import org.nuxeo.shell.Command;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "mkdir", help = "Create a directory in local file system")
 public class MkDir implements Runnable {

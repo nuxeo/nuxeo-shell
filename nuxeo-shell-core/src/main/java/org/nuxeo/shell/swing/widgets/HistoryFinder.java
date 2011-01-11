@@ -27,7 +27,7 @@ import org.nuxeo.shell.swing.Console;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @SuppressWarnings("serial")
 public class HistoryFinder extends JTextField implements DocumentListener {

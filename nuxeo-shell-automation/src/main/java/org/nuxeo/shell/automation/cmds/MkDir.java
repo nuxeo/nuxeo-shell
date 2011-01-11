@@ -30,7 +30,7 @@ import org.nuxeo.shell.utils.Path;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "mkdir", help = "Create a document of the given type")
 public class MkDir implements Runnable {

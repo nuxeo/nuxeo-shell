@@ -34,7 +34,7 @@ import org.nuxeo.shell.cmds.completors.ShellCompletor;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "interactive", help = "Interactive shell")
 public class Interactive implements Runnable, ShellConsole {
@@ -71,7 +71,7 @@ public class Interactive implements Runnable, ShellConsole {
 
     /**
      * Used in GUI mode
-     * 
+     *
      * @param shell
      * @param in
      * @param out
@@ -146,7 +146,7 @@ public class Interactive implements Runnable, ShellConsole {
      * Return non zero to stop the application. If a negative code is returned
      * the application will stop normally otherwise it will stop using
      * System.exit with the exit code as argument.
-     * 
+     *
      * @param t
      * @return
      * @throws IOException

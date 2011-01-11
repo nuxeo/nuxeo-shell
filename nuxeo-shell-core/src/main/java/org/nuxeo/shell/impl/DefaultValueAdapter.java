@@ -24,7 +24,7 @@ import org.nuxeo.shell.ValueAdapter;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public class DefaultValueAdapter implements ValueAdapter {
 

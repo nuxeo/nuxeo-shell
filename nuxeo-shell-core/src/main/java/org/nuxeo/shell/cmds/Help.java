@@ -46,7 +46,7 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "help", help = "The help command")
 public class Help implements Runnable {

@@ -25,7 +25,7 @@ import org.nuxeo.shell.Shell;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "trace", help = "Print the last error stack trace if any")
 public class Trace implements Runnable {

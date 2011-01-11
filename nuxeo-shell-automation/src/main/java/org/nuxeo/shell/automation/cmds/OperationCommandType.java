@@ -37,7 +37,7 @@ import org.nuxeo.shell.impl.AbstractCommandType;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public class OperationCommandType extends AbstractCommandType {
 

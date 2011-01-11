@@ -35,9 +35,9 @@ import org.nuxeo.shell.fs.FileSystem;
 
 /**
  * Helper class to run remote scripts.
- * 
+ *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public class Scripting {
 

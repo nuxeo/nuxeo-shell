@@ -33,7 +33,7 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "runonfile", help = "Run a server automation chain that accepts a file as an input")
 public class RunChainWithFile implements Runnable {

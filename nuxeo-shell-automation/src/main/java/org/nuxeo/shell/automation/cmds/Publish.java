@@ -27,7 +27,7 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "publish", help = "Publish a document into a section")
 public class Publish implements Runnable {

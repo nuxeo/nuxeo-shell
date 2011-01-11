@@ -40,7 +40,7 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "audit", help = "Run a query against audit service")
 public class Audit implements Runnable {

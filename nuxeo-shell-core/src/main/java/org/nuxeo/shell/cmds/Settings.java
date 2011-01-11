@@ -28,7 +28,7 @@ import org.nuxeo.shell.fs.cmds.Cat;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "settings", help = "Print or modify the shell settings.")
 public class Settings implements Runnable {

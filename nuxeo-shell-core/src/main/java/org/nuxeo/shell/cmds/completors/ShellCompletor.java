@@ -30,7 +30,7 @@ import org.nuxeo.shell.cmds.Interactive;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public class ShellCompletor implements Completor {
 

@@ -29,7 +29,7 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public class Connector {
 
@@ -136,7 +136,7 @@ public class Connector {
     /**
      * Get the response and remove the ending "osgi>" if present - also trim the
      * string before returning. (CRLF is not included at the end)
-     * 
+     *
      * @return
      * @throws IOException
      */

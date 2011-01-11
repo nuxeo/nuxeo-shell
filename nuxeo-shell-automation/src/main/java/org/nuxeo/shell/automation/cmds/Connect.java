@@ -28,7 +28,7 @@ import org.nuxeo.shell.automation.AutomationFeature;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "connect", help = "Connect to a remote automation server")
 public class Connect implements Runnable {

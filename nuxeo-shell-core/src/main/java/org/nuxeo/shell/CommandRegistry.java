@@ -29,15 +29,15 @@ import org.nuxeo.shell.impl.DefaultCommandType;
 
 /**
  * A command registry associated to a given domain name.
- * 
+ *
  * Registries are named so each registry is using a different namespace.
- * 
+ *
  * For example you can have a "local" and a "remote" namespace using different
  * command registries. Commands in local namespace are working on the filesystem
  * while the one in remote namespace are working on a remote server.
- * 
+ *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public abstract class CommandRegistry {
 
@@ -146,7 +146,7 @@ public abstract class CommandRegistry {
 
     /**
      * Get sorted command names including aliases
-     * 
+     *
      * @return
      */
     public String[] getCommandNames() {
@@ -162,7 +162,7 @@ public abstract class CommandRegistry {
 
     /**
      * Override this to provide a custom prompt for your command namespace
-     * 
+     *
      * @param shell
      * @return
      */

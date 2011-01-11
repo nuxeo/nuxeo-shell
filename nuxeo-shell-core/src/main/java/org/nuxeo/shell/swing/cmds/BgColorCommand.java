@@ -30,7 +30,7 @@ import org.nuxeo.shell.swing.Theme;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "background", help = "Modify the background color used by the shell. This command is available only in UI mode.")
 public class BgColorCommand implements Runnable {

@@ -23,7 +23,7 @@ import org.nuxeo.shell.fs.FileSystem;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 public class FileSystemCommands extends CommandRegistry {
 

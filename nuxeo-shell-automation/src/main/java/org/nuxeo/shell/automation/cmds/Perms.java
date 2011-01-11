@@ -36,7 +36,7 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
+ *
  */
 @Command(name = "perms", help = "Set or view permissions on a document")
 public class Perms implements Runnable {
