@@ -37,11 +37,11 @@ public class Theme {
     protected static Font defFont = new Font(Font.MONOSPACED, Font.PLAIN, 14);
 
     static {
-        themes.put("Default", new Theme("Default", defFont, Color.GREEN,
+        themes.put("Green", new Theme("Default", defFont, Color.GREEN,
                 Color.BLACK));
         themes.put("Linux", new Theme("Linux", defFont, Color.WHITE,
                 Color.BLACK));
-        themes.put("White", new Theme("White", defFont, Color.BLACK,
+        themes.put("Default", new Theme("White", defFont, Color.BLACK,
                 Color.WHITE));
     }
 
