@@ -124,7 +124,6 @@
       </plugin>
       <plugin>
         <artifactId>maven-jarsigner-plugin</artifactId>
-        <version>1.2</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -137,8 +136,8 @@
           <storetype>${keystore.type}</storetype>
           <keystore>${keystore.path}</keystore>
           <alias>${keystore.alias}</alias>
-          <storepass>${keystore.store.password}</storepass>
-          <keypass>${keystore.key.password}</keypass>
+          <storepass>${keystore.password}</storepass>
+          <keypass>${keystore.password}</keypass>
         </configuration>
       </plugin>
     </plugins>
