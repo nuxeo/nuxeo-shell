@@ -27,7 +27,7 @@
       <id>release</id>
       <properties>
         <keystore.type>JKS</keystore.type>
-        <keystore.alias>nuxeo-shell</keystore.alias>
+        <keystore.alias>nuxeocom</keystore.alias>
       </properties>
     </profile>
     <profile>

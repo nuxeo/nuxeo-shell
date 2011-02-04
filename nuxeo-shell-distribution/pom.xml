@@ -137,7 +137,6 @@
           <keystore>${keystore.path}</keystore>
           <alias>${keystore.alias}</alias>
           <storepass>${keystore.password}</storepass>
-          <keypass>${keystore.password}</keypass>
         </configuration>
       </plugin>
     </plugins>
