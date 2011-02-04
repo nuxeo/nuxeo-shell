@@ -29,6 +29,13 @@
   </modules>
   <profiles>
     <profile>
+      <id>release</id>
+      <properties>
+        <keystore.type>JKS</keystore.type>
+        <keystore.alias>nuxeo-shell</keystore.alias>
+      </properties>
+    </profile>
+    <profile>
       <!-- development profile - do not use it in production mode -->
       <id>dev</id>
       <activation>
@@ -39,20 +46,6 @@
         <keystore.type>JKS</keystore.type>
         <keystore.alias>nuxeo-shell-dev</keystore.alias>
         <keystore.password>nuxeodev</keystore.password>
-        <keystore.store.password>${keystore.password}</keystore.store.password>
-        <keystore.key.password>${keystore.password}</keystore.key.password>
-      </properties>
-    </profile>
-    <profile>
-      <id>prod</id>
-      <properties>
-        <!-- TODO: replace this with prod. keystore -->
-        <keystore.path>nuxeo.jks</keystore.path>
-        <keystore.type>JKS</keystore.type>
-        <keystore.alias>nuxeo-shell</keystore.alias>
-        <keystore.password>nuxeodev</keystore.password>
-        <keystore.store.password>${keystore.password}</keystore.store.password>
-        <keystore.key.password>${keystore.password}</keystore.key.password>
       </properties>
     </profile>
   </profiles>
