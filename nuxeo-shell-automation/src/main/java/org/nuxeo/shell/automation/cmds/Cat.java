@@ -71,6 +71,9 @@ public class Cat implements Runnable {
         buf.append(ShellConsole.CRLF);
         buf.append("\tPath: ").append(doc.getPath());
         buf.append(ShellConsole.CRLF);
+        buf.append("\tType: ").append(doc.getType());
+        buf.append(ShellConsole.CRLF);
+
         if (doc.getLastModified() != null) {
             buf.append("\tLast Modified: ").append(
                     new SimpleDateFormat().format(doc.getLastModified()));
