@@ -1,8 +1,5 @@
 #!/bin/sh
 
-SHELL_JAR="%SHELL_JAR%"
-JAVA="java"
+#JAVA_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"
 
-JAVA -cp ${SHELL_JAR} org.nuxeo.shell.Main $@
-
-
+java ${JAVA_OPTS} -cp $(dirname $0) org.nuxeo.shell.Main $@
