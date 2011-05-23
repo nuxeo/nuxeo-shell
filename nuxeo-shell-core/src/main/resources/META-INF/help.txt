@@ -36,7 +36,7 @@ namespace.
 {bold}AUTO COMPLETION{bold}
 Each command may provide custom auto-completion for its parameter or
 argument values.
-Also, the shell is providing built-in auto-completion for commands and
+Also, the shell provides built-in auto-completion for commands and
 parameter names.
 
 To launch auto-completion press tab key. To launch auto-completion on
