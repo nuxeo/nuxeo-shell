@@ -1,7 +1,7 @@
 {bold}NUXEO SHELL ${version}{bold}
 
 This is the main Help page. To see the list of available commands type 'cmds'.
-Also, you can use help [command] for more details about a command.
+Also, you can use "help [command]" for more details about a command.
 
 For online documentation go to http://doc.nuxeo.com/display/NXDOC/Nuxeo+Shell
 
@@ -10,23 +10,24 @@ For online documentation go to http://doc.nuxeo.com/display/NXDOC/Nuxeo+Shell
 Nuxeo Shell provides the capability to define multiple command
 namespaces in the same shell.
 To switch to a specific namespace you can use the "use [namespace]" command.
-A namespace is just a registry of commands - so while in a given
-namespace you will see only the commands provided by that registry.
-Namespaces are hierarchical so a namespace my extend another one to adds
+A namespace is just a registry of commands, so while in a given
+namespace, you will see only the commands provided by that registry.
+Namespaces are hierarchical so a namespace may extend another one to add
 more commands.
 Available namespaces are setup by the Shell implementation. See using a
 specific shell implementation section for more information.
 
 The default implementation comes with 4 command namespaces:
-    global - the global namespace. This provides global commands like
-             'help', 'use', 'cmds' etc.
-    local  - provides file system commands like: 'ls', 'cd', 'cat' etc.
-             Extends the global namespace.
-    remote - provides remote commands against a nuxeo server. Extends
-             the global namespace. Available only after connecting to a
-             remote server.
-    automation - expose remote automation operations as commands.
-             Available only after connecting to a remote server.
+
+	global - the global namespace. This provides global commands like
+         	'help', 'use', 'cmds' etc.
+	local  - provides file system commands like: 'ls', 'cd', 'cat' etc.
+         	Extends the global namespace.
+	remote - provides remote commands against a Nuxeo server. Extends
+         	the global namespace. Available only after connecting to a
+         	remote server.
+	automation - exposes remote automation operations as commands.
+         	Available only after connecting to a remote server.
 
 When launching the shell the 'local' namespace is automatically activated.
 When connecting to a remote server the shell will automatically switch
@@ -39,7 +40,7 @@ argument values.
 Also, the shell provides built-in auto-completion for commands and
 parameter names.
 
-To launch auto-completion press tab key. To launch auto-completion on
+To launch auto-completion press the tab key. To launch auto-completion on
 parameter names write a '-' and then press tab.
 
 {bold}BATCH MODE{bold}
@@ -47,10 +48,10 @@ To run commands from a batch file, use the "-f file/path" parameter on
 the command line (when starting the shell).
 To run commands from stdin, use the '-' parameter on the command line.
 To run commands given as an argument to the shell command line, use '-e'
-followed by a semicolonr-separated list of commands.
+followed by a semicolon-separated list of commands.
 
-When using a command file (or the stdin) each commands must be put on a
-single line. To span a command on several line you may use the escape
+When using a command file (or the stdin) each command must be put on a
+single line. To span a command across several lines you may use the escape
 character '\' as the last character on the line.
 
 {bold}EXCEPTION HANDLING{bold}
@@ -69,30 +70,31 @@ You can either pass these arguments to the connect command itself or to
 the shell command line when starting.
 You can use -u for the username, -p for the password and the URL should
 be given as argument.
-If password is not specifiedm, you will be prompted for a password when in
+If the password is not specified, you will be prompted for a password when in
 interactive mode.
 
 {bold}SHELL VERSION{bold}
 You can launch the shell using:
 
-java -jar nuxeo-shell.jar --version
+  java -jar nuxeo-shell.jar --version
 
 to get information about the shell version and the minimal server
-version required by the shell to correctly run against a remote server.
+version required by the shell to run adequately against a remote server.
 You can also have this information by using the version command.
 
 {bold}EXAMPLE{bold}
 Here is an example of a short session:
 After launching the shell you are in 'local' mode. So you can use the
 provided file system commands like:
+
   ls - to list the content of the current directory.
   cd, pushd, popd - to change the current directory
-  cat, mv, cp etc. for other file based operations.
+  cat, mv, cp, etc. - for other file based operations.
 
 To connect to a remote server type:
   connect http://localhost:8080/nuxeo/site/automation -u Administrator
 
-After the connection is done you are automatically switched in "remote"
+After the connection is done you are automatically taken to the "remote"
 namespace.
 So doing now a 'ls' will list the content of the current document (which
 is for now the root document).
