@@ -61,15 +61,15 @@ public class RemoteContext {
         this.client = client;
         this.session = session;
         ds = session.getAdapter(DocumentService.class);
-        shell.putContextObject(RemoteContext.class, this);
-        shell.putContextObject(AutomationClient.class, client);
-        shell.putContextObject(Session.class, session);
-        shell.putContextObject(DocumentService.class, ds);
         stack = new ArrayList<Document>();
         // cd into root
         doc = ds.getRootDocument();
         userName = session.getLogin().getUsername();
         host = new URL(client.getBaseUrl()).getHost();
+        shell.putContextObject(RemoteContext.class, this);
+        shell.putContextObject(AutomationClient.class, client);
+        shell.putContextObject(Session.class, session);
+        shell.putContextObject(DocumentService.class, ds);
     }
 
     public String getUserName() {
