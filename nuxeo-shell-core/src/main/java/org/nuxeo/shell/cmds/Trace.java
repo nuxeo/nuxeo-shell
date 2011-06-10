@@ -47,6 +47,10 @@ public class Trace implements Runnable {
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);
         t.printStackTrace(pw);
+        if (t.getCause() != null && t.getCause().getClass().getName().endsWith(".RemoteException")) {
+            pw.println("Dumping remote stack trace:");
+            t.getCause().printStackTrace(pw);
+        }
         pw.close();
         return sw.getBuffer().toString();
     }
