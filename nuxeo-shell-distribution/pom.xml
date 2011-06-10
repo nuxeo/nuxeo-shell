@@ -33,15 +33,12 @@
     </dependency>
     <!-- dependencies needed by automation client -->
     <dependency>
-      <groupId>net.sf.json-lib</groupId>
-      <artifactId>json-lib</artifactId>
-      <classifier>jdk15</classifier>
-      <scope>compile</scope>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-core-asl</artifactId>
     </dependency>
     <dependency>
-      <groupId>net.sf.ezmorph</groupId>
-      <artifactId>ezmorph</artifactId>
-      <scope>compile</scope>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
     </dependency>
     <dependency>
       <groupId>javax.mail</groupId>
