@@ -7,18 +7,18 @@
   <parent>
     <groupId>org.nuxeo.ecm.automation</groupId>
     <artifactId>nuxeo-automation-parent</artifactId>
-    <version>5.4.1.1-SNAPSHOT</version>
+    <version>5.4.1.1-HF05</version>
   </parent>
 
   <groupId>org.nuxeo.shell</groupId>
   <artifactId>nuxeo-shell-parent</artifactId>
-  <version>5.4.1.1-SNAPSHOT</version>
+  <version>5.4.1.1-HF05</version>
   <name>Nuxeo Shell</name>
   <description>Nuxeo Shell is providing a command line interface to Nuxeo Servers</description>
   <packaging>pom</packaging>
 
   <properties>
-    <nuxeo.version>5.4.1.1-SNAPSHOT</nuxeo.version>
+    <nuxeo.version>5.4.1.1-HF05</nuxeo.version>
   </properties>
 
   <modules>
