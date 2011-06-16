@@ -48,6 +48,9 @@ public class GetRelations implements Runnable {
     @Parameter(name = "-predicate", hasValue = true, help = "The relation predicate - requested.")
     protected String predicate;
 
+    @Parameter(name = "-graphName", hasValue = true, help = "The graph name - optional.")
+    protected String graphName;
+
     @Argument(name = "doc", index = 0, required = false, completor = DocRefCompletor.class, help = "The document involved in the relation")
     protected String path;
 
@@ -62,7 +65,7 @@ public class GetRelations implements Runnable {
         DocRef docRef = ctx.resolveRef(path);
         try {
             Documents docs = (Documents) ctx.getDocumentService().getRelations(
-                    docRef, predicate, outgoing);
+                    docRef, predicate, outgoing, graphName);
             for (Document doc : docs) {
                 DocumentHelper.printPath(console, doc);
             }
