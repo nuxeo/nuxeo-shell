@@ -24,7 +24,7 @@ import java.util.Date;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import org.nuxeo.ecm.automation.client.jaxrs.OperationRequest;
+import org.nuxeo.ecm.automation.client.OperationRequest;
 import org.nuxeo.ecm.automation.client.jaxrs.model.Blob;
 import org.nuxeo.ecm.automation.client.jaxrs.model.FileBlob;
 import org.nuxeo.shell.Argument;

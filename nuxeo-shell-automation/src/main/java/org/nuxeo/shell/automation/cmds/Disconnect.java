@@ -16,7 +16,7 @@
  */
 package org.nuxeo.shell.automation.cmds;
 
-import org.nuxeo.ecm.automation.client.jaxrs.Session;
+import org.nuxeo.ecm.automation.client.Session;
 import org.nuxeo.shell.Command;
 import org.nuxeo.shell.Context;
 import org.nuxeo.shell.Shell;

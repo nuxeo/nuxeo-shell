@@ -18,8 +18,8 @@ package org.nuxeo.shell.automation.cmds;
 
 import java.io.File;
 
-import org.nuxeo.ecm.automation.client.jaxrs.Constants;
-import org.nuxeo.ecm.automation.client.jaxrs.OperationRequest;
+import org.nuxeo.ecm.automation.client.Constants;
+import org.nuxeo.ecm.automation.client.OperationRequest;
 import org.nuxeo.ecm.automation.client.jaxrs.model.FileBlob;
 import org.nuxeo.shell.Argument;
 import org.nuxeo.shell.Command;

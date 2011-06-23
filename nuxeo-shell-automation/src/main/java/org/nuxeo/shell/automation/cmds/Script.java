@@ -57,7 +57,7 @@ public class Script implements Runnable {
     public void run() {
         ShellConsole console = ctx.getShell().getConsole();
         FileBlob blob = new FileBlob(file);
-        Map<String, String> args = new HashMap<String, String>();
+        Map<String, Object> args = new HashMap<String, Object>();
         if (ctxVars != null) {
             for (String pair : ctxVars.split(sep)) {
                 String[] ar = StringUtils.split(pair, '=', true);

@@ -25,7 +25,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.nuxeo.ecm.automation.client.jaxrs.OperationRequest;
+import org.nuxeo.ecm.automation.client.OperationRequest;
 import org.nuxeo.ecm.automation.client.jaxrs.model.Blob;
 import org.nuxeo.ecm.automation.client.jaxrs.model.FileBlob;
 import org.nuxeo.ecm.automation.client.jaxrs.model.StreamBlob;
@@ -41,7 +41,7 @@ import org.nuxeo.shell.fs.FileSystem;
  */
 public class Scripting {
 
-    public static String run(File script, Map<String, String> args)
+    public static String run(File script, Map<String, Object> args)
             throws IOException {
         FileInputStream in = new FileInputStream(script);
         try {
@@ -55,7 +55,7 @@ public class Scripting {
 
     }
 
-    public static String run(String resource, Map<String, String> args)
+    public static String run(String resource, Map<String, Object> args)
             throws IOException {
         InputStream in = Scripting.class.getClassLoader().getResourceAsStream(
                 resource);
@@ -72,7 +72,7 @@ public class Scripting {
         }
     }
 
-    public static String run(URL url, Map<String, String> args)
+    public static String run(URL url, Map<String, Object> args)
             throws IOException {
         InputStream in = url.openStream();
         try {
@@ -86,7 +86,7 @@ public class Scripting {
     }
 
     public static String run(String name, InputStream in,
-            Map<String, String> args) {
+            Map<String, Object> args) {
         try {
             return runScript(Shell.get().getContextObject(RemoteContext.class),
                     new StreamBlob(in, name, "text/plain"), args);
@@ -98,7 +98,7 @@ public class Scripting {
     }
 
     public static String runScript(RemoteContext ctx, Blob blob,
-            Map<String, String> args) throws Exception {
+            Map<String, Object> args) throws Exception {
         String fname = blob.getFileName();
         if (fname != null) {
             if (fname.endsWith(".groovy")) {
@@ -108,7 +108,7 @@ public class Scripting {
             }
         }
         if (args == null) {
-            args = new HashMap<String, String>();
+            args = new HashMap<String, Object>();
         }
         OperationRequest req = ctx.getSession().newRequest(
                 "Context.RunInputScript", args).setInput(blob);

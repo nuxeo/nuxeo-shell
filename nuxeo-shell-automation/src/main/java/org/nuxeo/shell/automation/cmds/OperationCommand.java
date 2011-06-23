@@ -16,10 +16,10 @@
  */
 package org.nuxeo.shell.automation.cmds;
 
-import org.nuxeo.ecm.automation.client.jaxrs.Constants;
-import org.nuxeo.ecm.automation.client.jaxrs.OperationRequest;
-import org.nuxeo.ecm.automation.client.jaxrs.RemoteException;
-import org.nuxeo.ecm.automation.client.jaxrs.Session;
+import org.nuxeo.ecm.automation.client.Constants;
+import org.nuxeo.ecm.automation.client.OperationRequest;
+import org.nuxeo.ecm.automation.client.RemoteException;
+import org.nuxeo.ecm.automation.client.Session;
 import org.nuxeo.ecm.automation.client.jaxrs.model.Blob;
 import org.nuxeo.ecm.automation.client.jaxrs.model.Blobs;
 import org.nuxeo.ecm.automation.client.jaxrs.model.Document;

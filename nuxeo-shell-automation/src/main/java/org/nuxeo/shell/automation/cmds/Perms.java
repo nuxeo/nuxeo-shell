@@ -99,7 +99,7 @@ public class Perms implements Runnable {
 
     protected void printAcl(ShellConsole console, DocRef doc, String acl)
             throws Exception {
-        HashMap<String, String> ctx = new HashMap<String, String>();
+        HashMap<String, Object> ctx = new HashMap<String, Object>();
         if (acl != null) {
             ctx.put("acl", acl);
         }
