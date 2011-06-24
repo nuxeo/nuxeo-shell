@@ -21,9 +21,8 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.nuxeo.ecm.automation.client.OperationRequest;
 import org.nuxeo.ecm.automation.client.jaxrs.model.Blob;
 import org.nuxeo.ecm.automation.client.jaxrs.model.FileBlob;
@@ -95,27 +94,54 @@ public class Audit implements Runnable {
         }
     }
 
-    protected void print(ShellConsole console, String content) {
-        JSONArray rows = JSONArray.fromObject(content);
+    private final void printString(ShellConsole console, JsonNode obj, String key) {
+        JsonNode v = obj.get(key);
+        if (v != null) {
+            String s = v.getTextValue();
+            if (s != null) {
+                console.print(v.getTextValue());
+                return;
+            }
+        }
+        console.print("[null]");
+    }
+
+    private final void printDate(ShellConsole console, JsonNode obj, String key, SimpleDateFormat fmt) {
+        JsonNode v = obj.get(key);
+        if (v != null) {
+            console.print(fmt.format(new Date(v.getValueAsLong())));
+        } else {
+            console.print("[null]");
+        }
+    }
+
+    protected void print(ShellConsole console, String content) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode rows = mapper.readTree(content);
+        if (!rows.isArray()) {
+            console.print("Invalid JSON object received:\n"+content);
+            return;
+        }
         int len = rows.size();
         SimpleDateFormat fmt = new SimpleDateFormat();
         for (int i = 0; i < len; i++) {
-            JSONObject obj = (JSONObject) rows.get(i);
-            console.print(obj.optString("eventId"));
+            JsonNode obj = (JsonNode) rows.get(i);
+            printString(console,  obj, "eventId");
             console.print("\t");
-            console.print(obj.optString("category"));
+            printString(console,  obj, "category");
             console.print("\t");
-            console.print(fmt.format(new Date(obj.optLong("eventDate"))));
+            printDate(console,  obj, "eventDate", fmt);
             console.print("\t");
-            console.print(obj.optString("principal"));
+            printString(console,  obj, "principal");
             console.print("\t");
-            console.print(obj.optString("docUUID"));
+            printString(console,  obj, "docUUID");
             console.print("\t");
-            console.print(obj.optString("docType"));
+            printString(console,  obj, "docType");
             console.print("\t");
-            console.print(obj.optString("docLifeCycle"));
+            printString(console,  obj, "docLifeCycle");
             console.print("\t");
-            console.println(obj.optString("comment"));
+            printString(console,  obj, "comment");
+            console.println();
         }
     }
 }
