@@ -22,7 +22,7 @@ import java.util.Map;
 
 import jline.ANSIBuffer;
 
-import org.nuxeo.ecm.automation.client.jaxrs.model.FileBlob;
+import org.nuxeo.ecm.automation.client.model.FileBlob;
 import org.nuxeo.shell.Argument;
 import org.nuxeo.shell.Command;
 import org.nuxeo.shell.Context;

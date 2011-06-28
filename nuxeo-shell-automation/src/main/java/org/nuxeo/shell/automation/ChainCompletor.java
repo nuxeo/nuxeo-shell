@@ -21,7 +21,7 @@ import java.util.List;
 
 import jline.Completor;
 
-import org.nuxeo.ecm.automation.client.jaxrs.model.OperationDocumentation;
+import org.nuxeo.ecm.automation.client.model.OperationDocumentation;
 import org.nuxeo.shell.Shell;
 
 /**

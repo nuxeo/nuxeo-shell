@@ -20,7 +20,7 @@ import java.util.HashMap;
 
 import jline.ANSIBuffer;
 
-import org.nuxeo.ecm.automation.client.jaxrs.model.DocRef;
+import org.nuxeo.ecm.automation.client.model.DocRef;
 import org.nuxeo.shell.Argument;
 import org.nuxeo.shell.Command;
 import org.nuxeo.shell.Context;

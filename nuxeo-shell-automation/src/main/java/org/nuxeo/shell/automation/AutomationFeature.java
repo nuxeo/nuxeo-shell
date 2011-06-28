@@ -22,8 +22,8 @@ import jline.Completor;
 
 import org.nuxeo.ecm.automation.client.Session;
 import org.nuxeo.ecm.automation.client.jaxrs.impl.HttpAutomationClient;
-import org.nuxeo.ecm.automation.client.jaxrs.model.DocRef;
-import org.nuxeo.ecm.automation.client.jaxrs.model.OperationDocumentation;
+import org.nuxeo.ecm.automation.client.model.DocRef;
+import org.nuxeo.ecm.automation.client.model.OperationDocumentation;
 import org.nuxeo.shell.CommandRegistry;
 import org.nuxeo.shell.CommandType;
 import org.nuxeo.shell.CompletorProvider;

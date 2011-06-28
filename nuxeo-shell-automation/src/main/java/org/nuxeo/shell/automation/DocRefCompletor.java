@@ -21,8 +21,8 @@ import java.util.List;
 
 import jline.Completor;
 
-import org.nuxeo.ecm.automation.client.jaxrs.model.Document;
-import org.nuxeo.ecm.automation.client.jaxrs.model.Documents;
+import org.nuxeo.ecm.automation.client.model.Document;
+import org.nuxeo.ecm.automation.client.model.Documents;
 import org.nuxeo.shell.Shell;
 import org.nuxeo.shell.ShellException;
 import org.nuxeo.shell.utils.Path;

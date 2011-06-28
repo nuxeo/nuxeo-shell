@@ -21,9 +21,9 @@ import java.util.TreeSet;
 
 import jline.ANSIBuffer;
 
-import org.nuxeo.ecm.automation.client.jaxrs.model.Document;
-import org.nuxeo.ecm.automation.client.jaxrs.model.PropertiesHelper;
-import org.nuxeo.ecm.automation.client.jaxrs.model.PropertyMap;
+import org.nuxeo.ecm.automation.client.model.Document;
+import org.nuxeo.ecm.automation.client.model.PropertiesHelper;
+import org.nuxeo.ecm.automation.client.model.PropertyMap;
 import org.nuxeo.shell.Argument;
 import org.nuxeo.shell.Command;
 import org.nuxeo.shell.Context;

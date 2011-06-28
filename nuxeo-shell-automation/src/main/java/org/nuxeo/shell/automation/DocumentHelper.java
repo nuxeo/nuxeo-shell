@@ -16,7 +16,7 @@
  */
 package org.nuxeo.shell.automation;
 
-import org.nuxeo.ecm.automation.client.jaxrs.model.Document;
+import org.nuxeo.ecm.automation.client.model.Document;
 import org.nuxeo.shell.ShellConsole;
 import org.nuxeo.shell.utils.Path;
 

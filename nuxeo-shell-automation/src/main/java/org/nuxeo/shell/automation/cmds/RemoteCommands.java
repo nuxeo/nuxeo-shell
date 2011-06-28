@@ -18,7 +18,7 @@ package org.nuxeo.shell.automation.cmds;
 
 import java.util.Map;
 
-import org.nuxeo.ecm.automation.client.jaxrs.model.Document;
+import org.nuxeo.ecm.automation.client.model.Document;
 import org.nuxeo.shell.CommandRegistry;
 import org.nuxeo.shell.Shell;
 import org.nuxeo.shell.ShellException;

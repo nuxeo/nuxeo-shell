@@ -24,11 +24,11 @@ import java.util.Map;
 
 import jline.Completor;
 
-import org.nuxeo.ecm.automation.client.jaxrs.model.DocRef;
-import org.nuxeo.ecm.automation.client.jaxrs.model.FileBlob;
-import org.nuxeo.ecm.automation.client.jaxrs.model.OperationDocumentation;
-import org.nuxeo.ecm.automation.client.jaxrs.model.OperationDocumentation.Param;
-import org.nuxeo.ecm.automation.client.jaxrs.model.OperationInput;
+import org.nuxeo.ecm.automation.client.model.DocRef;
+import org.nuxeo.ecm.automation.client.model.FileBlob;
+import org.nuxeo.ecm.automation.client.model.OperationDocumentation;
+import org.nuxeo.ecm.automation.client.model.OperationDocumentation.Param;
+import org.nuxeo.ecm.automation.client.model.OperationInput;
 import org.nuxeo.shell.Shell;
 import org.nuxeo.shell.ShellException;
 import org.nuxeo.shell.automation.DocRefCompletor;

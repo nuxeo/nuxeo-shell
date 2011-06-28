@@ -26,9 +26,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.nuxeo.ecm.automation.client.OperationRequest;
-import org.nuxeo.ecm.automation.client.jaxrs.model.Blob;
-import org.nuxeo.ecm.automation.client.jaxrs.model.FileBlob;
-import org.nuxeo.ecm.automation.client.jaxrs.model.StreamBlob;
+import org.nuxeo.ecm.automation.client.model.Blob;
+import org.nuxeo.ecm.automation.client.model.FileBlob;
+import org.nuxeo.ecm.automation.client.model.StreamBlob;
 import org.nuxeo.shell.Shell;
 import org.nuxeo.shell.ShellException;
 import org.nuxeo.shell.fs.FileSystem;
