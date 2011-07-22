@@ -58,14 +58,14 @@ public class AutomationFeature implements ShellFeature, ValueAdapter,
     }
 
     public HttpAutomationClient connect(String url, String username,
-            String password) throws Exception {
+            String password, String initialDirectory) throws Exception {
         if (isConnected()) {
             disconnect();
         }
         Shell shell = Shell.get();
         HttpAutomationClient client = new HttpAutomationClient(url);
         Session session = client.getSession(username, password);
-        ctx = new RemoteContext(this, client, session);
+        ctx = new RemoteContext(this, client, session, initialDirectory);
 
         // switch to automation command namespace
         RemoteCommands.INSTANCE.onConnect();

@@ -56,14 +56,17 @@ public class RemoteContext {
     protected String host;
 
     public RemoteContext(AutomationFeature feature,
-            HttpAutomationClient client, Session session) throws Exception {
+            HttpAutomationClient client, Session session, String dir) throws Exception {
         this.shell = Shell.get();
         this.client = client;
         this.session = session;
         ds = session.getAdapter(DocumentService.class);
         stack = new ArrayList<Document>();
-        // cd into root
-        doc = ds.getRootDocument();
+        try {
+            doc = ds.getDocument(dir);
+        } catch (Throwable e) {
+            throw new ShellException("Cannot access to " + dir + " (use another directory using the -d parameter)", e);
+        }
         userName = session.getLogin().getUsername();
         host = new URL(client.getBaseUrl()).getHost();
         shell.putContextObject(RemoteContext.class, this);
