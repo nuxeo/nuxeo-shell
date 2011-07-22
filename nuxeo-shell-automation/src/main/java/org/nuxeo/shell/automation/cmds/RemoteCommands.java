@@ -112,11 +112,15 @@ public class RemoteCommands extends CommandRegistry {
             String url = args.get("#1");
             String username = args.get("-u");
             String password = args.get("-p");
+            String dir = args.get("-d");
+            if (dir == null) {
+                dir = "/";
+            }
             if (url != null && username != null && password != null) {
                 try {
                     shell.getConsole().println("Connecting to " + url + " ...");
                     shell.getFeature(AutomationFeature.class).connect(url,
-                            username, password);
+                            username, password, dir);
                 } catch (Throwable t) {
                     throw new ShellException("Failed to connect to " + url, t);
                 }
