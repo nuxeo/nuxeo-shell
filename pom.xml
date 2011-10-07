@@ -7,21 +7,21 @@
     <artifactId>nuxeo-automation-parent</artifactId>
     <version>5.4.3-SNAPSHOT</version>
   </parent>
-  <properties>
-    <nuxeo.version>5.4.3-SNAPSHOT</nuxeo.version>
-  </properties>
+
   <groupId>org.nuxeo.shell</groupId>
   <artifactId>nuxeo-shell-parent</artifactId>
   <version>5.4.3-SNAPSHOT</version>
   <name>Nuxeo Shell</name>
   <description>Nuxeo Shell is providing a command line interface to Nuxeo Servers</description>
   <packaging>pom</packaging>
+
   <modules>
     <module>nuxeo-shell-core</module>
     <module>nuxeo-shell-automation</module>
     <module>nuxeo-shell-equinox</module>
     <module>nuxeo-shell-distribution</module>
   </modules>
+
   <profiles>
     <profile>
       <id>release</id>
@@ -44,25 +44,7 @@
       </properties>
     </profile>
   </profiles>
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.nuxeo.shell</groupId>
-        <artifactId>nuxeo-shell-core</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.nuxeo.shell</groupId>
-        <artifactId>nuxeo-shell-automation</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.nuxeo.shell</groupId>
-        <artifactId>nuxeo-shell-equinox</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+
   <developers>
     <developer>
       <id>bstefanescu</id>
@@ -77,6 +59,7 @@
       <timezone>+1</timezone>
     </developer>
   </developers>
+
   <build>
     <!-- include resources in src directory -->
     <resources>
