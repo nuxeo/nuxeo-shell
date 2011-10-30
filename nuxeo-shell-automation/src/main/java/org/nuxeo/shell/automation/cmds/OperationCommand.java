@@ -33,7 +33,7 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
+ * 
  */
 public class OperationCommand implements Runnable {
 
@@ -111,7 +111,12 @@ public class OperationCommand implements Runnable {
                 request.setContextProperty(pair[0], pair[1]);
             }
         } else {
-            request.set(name, value);
+            if (value instanceof String) {
+                value = value.toString().replace("\\n", "\n");
+                request.set(name, value);
+            } else {
+                request.set(name, value);
+            }
         }
     }
 
