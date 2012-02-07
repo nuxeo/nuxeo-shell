@@ -44,6 +44,9 @@ public class Ls implements Runnable {
     @Parameter(name = "-uid", hasValue = false, help = "If used the documents will be printed using the document UID.")
     protected boolean uid = false;
 
+    @Parameter(name = "-title", hasValue = false, help = "If used the documents will be printed using their dublincore title.")
+    protected boolean title = false;
+
     public void run() {
         ShellConsole console = ctx.getShell().getConsole();
         if (root == null) {
@@ -51,12 +54,12 @@ public class Ls implements Runnable {
             root = ctx.getDocument();
         }
         try {
-            if (uid) {
-                for (Document doc : ctx.getDocumentService().getChildren(root)) {
+            for (Document doc : ctx.getDocumentService().getChildren(root)) {
+                if (uid) {
                     console.println(doc.getId());
-                }
-            } else {
-                for (Document doc : ctx.getDocumentService().getChildren(root)) {
+                } else if (title) {
+                    console.println(doc.getTitle());
+                } else {
                     DocumentHelper.printName(console, doc);
                 }
             }
