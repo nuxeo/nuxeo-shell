@@ -96,8 +96,8 @@
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"></transformer>
               </transformers>
-              <!--finalName>nuxeo-shell-${project.version}</finalName-->
-              <createSourcesJar>true</createSourcesJar>
+              <!--finalName>nuxeo-shell-${project.version}</finalName -->
+              <createSourcesJar>false</createSourcesJar>
               <createDependencyReducedPom>false</createDependencyReducedPom>
               <keepDependenciesWithProvidedScope>true</keepDependenciesWithProvidedScope>
               <shadedArtifactAttached>false</shadedArtifactAttached>
