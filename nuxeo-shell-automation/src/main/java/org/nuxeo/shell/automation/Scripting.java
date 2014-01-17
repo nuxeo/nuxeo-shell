@@ -41,11 +41,11 @@ import org.nuxeo.shell.fs.FileSystem;
  */
 public class Scripting {
 
-    public static String run(File script, Map<String, Object> args)
+    public static String run(File script, Map<String, Object> args, Integer timeout)
             throws IOException {
         FileInputStream in = new FileInputStream(script);
         try {
-            return run(script.getName(), in, args);
+            return run(script.getName(), in, args, timeout);
         } finally {
             try {
                 in.close();
@@ -55,7 +55,7 @@ public class Scripting {
 
     }
 
-    public static String run(String resource, Map<String, Object> args)
+    public static String run(String resource, Map<String, Object> args, Integer timeout)
             throws IOException {
         InputStream in = Scripting.class.getClassLoader().getResourceAsStream(
                 resource);
@@ -63,7 +63,7 @@ public class Scripting {
             throw new FileNotFoundException("No such resource: " + resource);
         }
         try {
-            return run(resource, in, args);
+            return run(resource, in, args, timeout);
         } finally {
             try {
                 in.close();
@@ -72,11 +72,11 @@ public class Scripting {
         }
     }
 
-    public static String run(URL url, Map<String, Object> args)
+    public static String run(URL url, Map<String, Object> args, Integer timeout)
             throws IOException {
         InputStream in = url.openStream();
         try {
-            return run(url.getFile(), in, args);
+            return run(url.getFile(), in, args, timeout);
         } finally {
             try {
                 in.close();
@@ -86,10 +86,10 @@ public class Scripting {
     }
 
     public static String run(String name, InputStream in,
-            Map<String, Object> args) {
+            Map<String, Object> args, Integer timeout) {
         try {
             return runScript(Shell.get().getContextObject(RemoteContext.class),
-                    new StreamBlob(in, name, "text/plain"), args);
+                    new StreamBlob(in, name, "text/plain"), args, timeout);
         } catch (ShellException e) {
             throw e;
         } catch (Exception e) {
@@ -98,7 +98,7 @@ public class Scripting {
     }
 
     public static String runScript(RemoteContext ctx, Blob blob,
-            Map<String, Object> args) throws Exception {
+            Map<String, Object> args, Integer timeout) throws Exception {
         String fname = blob.getFileName();
         if (fname != null) {
             if (fname.endsWith(".groovy")) {
@@ -112,6 +112,10 @@ public class Scripting {
         }
         OperationRequest req = ctx.getSession().newRequest(
                 "Context.RunInputScript", args).setInput(blob);
+
+        if (timeout != null) {
+            req.setHeader("Nuxeo-Transaction-Timeout", ""+timeout*1000);
+        }
         if (fname != null) {
             req.set("type", fname);
         }

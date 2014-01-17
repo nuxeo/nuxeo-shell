@@ -54,6 +54,9 @@ public class Script implements Runnable {
     @Argument(name = "file", index = 0, required = true, help = "The script file. Must have a .mvel or .groovy extension")
     protected File file;
 
+    @Argument(name = "timeout", index = 0, required = false, help = "Transaction timeout in seconds.")
+    protected Integer timeout;
+
     public void run() {
         ShellConsole console = ctx.getShell().getConsole();
         FileBlob blob = new FileBlob(file);
@@ -66,7 +69,7 @@ public class Script implements Runnable {
         }
         try {
             ANSIBuffer buf = Shell.get().newANSIBuffer();
-            ANSICodes.appendTemplate(buf, Scripting.runScript(ctx, blob, args),
+            ANSICodes.appendTemplate(buf, Scripting.runScript(ctx, blob, args, timeout),
                     false);
             console.println(buf.toString());
         } catch (Exception e) {

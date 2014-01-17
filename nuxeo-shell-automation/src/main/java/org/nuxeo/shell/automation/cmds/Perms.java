@@ -104,7 +104,7 @@ public class Perms implements Runnable {
             ctx.put("acl", acl);
         }
         ctx.put("ref", doc.toString());
-        String result = Scripting.run("scripts/printAcl.groovy", ctx);
+        String result = Scripting.run("scripts/printAcl.groovy", ctx, null);
         ANSIBuffer buf = Shell.get().newANSIBuffer();
         ANSICodes.appendTemplate(buf, result, false);
         console.println(buf.toString());
