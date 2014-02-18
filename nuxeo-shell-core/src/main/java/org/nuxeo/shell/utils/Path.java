@@ -168,7 +168,6 @@ public class Path implements Serializable {
                         continue; // TODO - we may add here the segment to avoid
                                   // rereading the char
                     }
-                    slash = 0;
                 }
                 // do nothing (the char will be added to the segment)
             default:
@@ -236,6 +235,9 @@ public class Path implements Serializable {
     }
 
     public String segment(int index) {
+        if (index >= segmentCount()) {
+            return null;
+        }
         return segments[index];
     }
 
