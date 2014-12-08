@@ -23,7 +23,6 @@ import org.nuxeo.shell.fs.FileSystem;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class FileSystemCommands extends CommandRegistry {
 
@@ -56,9 +55,7 @@ public class FileSystemCommands extends CommandRegistry {
 
     @Override
     public String getPrompt(Shell shell) {
-        return System.getProperty("user.name") + ":"
-                + shell.getContextObject(FileSystem.class).pwd().getName()
-                + "$ ";
+        return System.getProperty("user.name") + ":" + shell.getContextObject(FileSystem.class).pwd().getName() + "$ ";
     }
 
 }

@@ -27,7 +27,6 @@ import org.nuxeo.shell.cmds.Interactive;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @SuppressWarnings("serial")
 public class ShellFrame extends JFrame {

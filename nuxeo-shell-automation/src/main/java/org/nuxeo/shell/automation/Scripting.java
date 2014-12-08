@@ -37,12 +37,10 @@ import org.nuxeo.shell.fs.FileSystem;
  * Helper class to run remote scripts.
  *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class Scripting {
 
-    public static String run(File script, Map<String, Object> args, Integer timeout)
-            throws IOException {
+    public static String run(File script, Map<String, Object> args, Integer timeout) throws IOException {
         FileInputStream in = new FileInputStream(script);
         try {
             return run(script.getName(), in, args, timeout);
@@ -55,10 +53,8 @@ public class Scripting {
 
     }
 
-    public static String run(String resource, Map<String, Object> args, Integer timeout)
-            throws IOException {
-        InputStream in = Scripting.class.getClassLoader().getResourceAsStream(
-                resource);
+    public static String run(String resource, Map<String, Object> args, Integer timeout) throws IOException {
+        InputStream in = Scripting.class.getClassLoader().getResourceAsStream(resource);
         if (in == null) {
             throw new FileNotFoundException("No such resource: " + resource);
         }
@@ -72,8 +68,7 @@ public class Scripting {
         }
     }
 
-    public static String run(URL url, Map<String, Object> args, Integer timeout)
-            throws IOException {
+    public static String run(URL url, Map<String, Object> args, Integer timeout) throws IOException {
         InputStream in = url.openStream();
         try {
             return run(url.getFile(), in, args, timeout);
@@ -85,11 +80,10 @@ public class Scripting {
         }
     }
 
-    public static String run(String name, InputStream in,
-            Map<String, Object> args, Integer timeout) {
+    public static String run(String name, InputStream in, Map<String, Object> args, Integer timeout) {
         try {
-            return runScript(Shell.get().getContextObject(RemoteContext.class),
-                    new StreamBlob(in, name, "text/plain"), args, timeout);
+            return runScript(Shell.get().getContextObject(RemoteContext.class), new StreamBlob(in, name, "text/plain"),
+                    args, timeout);
         } catch (ShellException e) {
             throw e;
         } catch (Exception e) {
@@ -97,8 +91,8 @@ public class Scripting {
         }
     }
 
-    public static String runScript(RemoteContext ctx, Blob blob,
-            Map<String, Object> args, Integer timeout) throws Exception {
+    public static String runScript(RemoteContext ctx, Blob blob, Map<String, Object> args, Integer timeout)
+            throws Exception {
         String fname = blob.getFileName();
         if (fname != null) {
             if (fname.endsWith(".groovy")) {
@@ -110,11 +104,10 @@ public class Scripting {
         if (args == null) {
             args = new HashMap<String, Object>();
         }
-        OperationRequest req = ctx.getSession().newRequest(
-                "Context.RunInputScript", args).setInput(blob);
+        OperationRequest req = ctx.getSession().newRequest("Context.RunInputScript", args).setInput(blob);
 
         if (timeout != null) {
-            req.setHeader("Nuxeo-Transaction-Timeout", ""+timeout*1000);
+            req.setHeader("Nuxeo-Transaction-Timeout", "" + timeout * 1000);
         }
         if (fname != null) {
             req.set("type", fname);

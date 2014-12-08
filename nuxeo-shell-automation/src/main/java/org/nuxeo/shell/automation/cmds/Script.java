@@ -37,7 +37,6 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "script", help = "Run a script on the server")
 public class Script implements Runnable {
@@ -69,8 +68,7 @@ public class Script implements Runnable {
         }
         try {
             ANSIBuffer buf = Shell.get().newANSIBuffer();
-            ANSICodes.appendTemplate(buf, Scripting.runScript(ctx, blob, args, timeout),
-                    false);
+            ANSICodes.appendTemplate(buf, Scripting.runScript(ctx, blob, args, timeout), false);
             console.println(buf.toString());
         } catch (Exception e) {
             throw new ShellException("Failed to run script", e);

@@ -32,9 +32,7 @@ import org.nuxeo.shell.ShellFeature;
 import org.nuxeo.shell.fs.cmds.FileSystemCommands;
 
 /**
- *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class FileSystem implements ShellFeature {
 
@@ -154,8 +152,7 @@ public class FileSystem implements ShellFeature {
         }
     }
 
-    public static void copy(InputStream in, OutputStream out)
-            throws IOException {
+    public static void copy(InputStream in, OutputStream out) throws IOException {
         byte[] buffer = createBuffer(in.available());
         int read;
         while ((read = in.read(buffer)) != -1) {
@@ -193,8 +190,7 @@ public class FileSystem implements ShellFeature {
         return lines;
     }
 
-    public static List<String> readAndMergeLines(InputStream in)
-            throws IOException {
+    public static List<String> readAndMergeLines(InputStream in) throws IOException {
         List<String> lines = readLines(in);
         ArrayList<String> result = new ArrayList<String>();
         StringBuilder lastLine = null;

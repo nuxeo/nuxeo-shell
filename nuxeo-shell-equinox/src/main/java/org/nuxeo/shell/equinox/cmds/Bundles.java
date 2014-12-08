@@ -27,7 +27,6 @@ import org.nuxeo.shell.equinox.StateCompletor;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "bundles", help = "Display details for all installed bundles")
 public class Bundles implements Runnable {

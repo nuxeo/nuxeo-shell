@@ -24,7 +24,6 @@ import org.nuxeo.shell.Shell;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class DocTypeCompletor extends SimpleCompletor {
 
@@ -42,8 +41,7 @@ public class DocTypeCompletor extends SimpleCompletor {
     @Override
     @SuppressWarnings("rawtypes")
     public int complete(String buffer, int cursor, List clist) {
-        String[] names = new String[] { "Workspace", "Section", "Folder",
-                "File", "Note" };
+        String[] names = new String[] { "Workspace", "Section", "Folder", "File", "Note" };
         setCandidateStrings(names);
         return super.complete(buffer, cursor, clist);
     }

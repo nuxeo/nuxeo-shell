@@ -28,16 +28,11 @@ import java.util.TreeSet;
 import org.nuxeo.shell.impl.DefaultCommandType;
 
 /**
- * A command registry associated to a given domain name.
- *
- * Registries are named so each registry is using a different namespace.
- *
- * For example you can have a "local" and a "remote" namespace using different
- * command registries. Commands in local namespace are working on the filesystem
- * while the one in remote namespace are working on a remote server.
+ * A command registry associated to a given domain name. Registries are named so each registry is using a different
+ * namespace. For example you can have a "local" and a "remote" namespace using different command registries. Commands
+ * in local namespace are working on the filesystem while the one in remote namespace are working on a remote server.
  *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public abstract class CommandRegistry {
 
@@ -117,8 +112,7 @@ public abstract class CommandRegistry {
         return ar;
     }
 
-    protected void collectCommandTypesByNamespace(
-            Map<String, Set<CommandType>> map) {
+    protected void collectCommandTypesByNamespace(Map<String, Set<CommandType>> map) {
         if (parent != null) {
             parent.collectCommandTypesByNamespace(map);
         }
@@ -171,11 +165,10 @@ public abstract class CommandRegistry {
     }
 
     /**
-     * Override this to automatically run some commands at startup if needed.
-     * This is invoked by the interactive mode just after it was started on the
-     * current namespace. This way you can do some initialization for your
-     * namespace if needed - like automatically connecting to remote if
-     * connection details were filled to the application command line arguments.
+     * Override this to automatically run some commands at startup if needed. This is invoked by the interactive mode
+     * just after it was started on the current namespace. This way you can do some initialization for your namespace if
+     * needed - like automatically connecting to remote if connection details were filled to the application command
+     * line arguments.
      */
     public void autorun(Shell shell) {
 

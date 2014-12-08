@@ -24,7 +24,6 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "pushd", help = "Change the context document and push the document on the navigation stack.")
 public class Pushd implements Runnable {

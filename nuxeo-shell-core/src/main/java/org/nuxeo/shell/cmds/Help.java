@@ -46,7 +46,6 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "help", help = "The help command")
 public class Help implements Runnable {
@@ -90,16 +89,14 @@ public class Help implements Runnable {
 
     public void showMainPage(ShellConsole console) {
         ANSIBuffer buf = shell.newANSIBuffer();
-        InputStream in = getClass().getClassLoader().getResourceAsStream(
-                "META-INF/help.txt");
+        InputStream in = getClass().getClassLoader().getResourceAsStream("META-INF/help.txt");
         if (in != null) {
             try {
                 String content = FileSystem.readContent(in);
                 String versionVar = "${version}";
                 int i = content.indexOf(versionVar);
                 if (i > -1) {
-                    content = content.substring(0, i)
-                            + Shell.class.getPackage().getImplementationVersion()
+                    content = content.substring(0, i) + Shell.class.getPackage().getImplementationVersion()
                             + content.substring(i + versionVar.length());
                 }
                 ANSICodes.appendTemplate(buf, content, false);
@@ -119,8 +116,7 @@ public class Help implements Runnable {
 
     }
 
-    public void exportRegistry(Shell shell, CommandRegistry reg, File file)
-            throws Exception {
+    public void exportRegistry(Shell shell, CommandRegistry reg, File file) throws Exception {
         StringBuilder sb = new StringBuilder();
         writeRegistry(reg, sb);
         PrintWriter w = new PrintWriter(new FileWriter(file));
@@ -151,8 +147,7 @@ public class Help implements Runnable {
     }
 
     protected void writeRegistry(CommandRegistry reg, StringBuilder sb) {
-        sb.append("{info:title=Namespce: *" + reg.getName() + "*}"
-                + reg.getDescription());
+        sb.append("{info:title=Namespce: *" + reg.getName() + "*}" + reg.getDescription());
         sb.append("{info}\nh1. Index\n{toc:minLevel=2|maxLevel=2}\n\n");
         HashSet<String> aliases = new HashSet<String>();
         for (CommandType cmd : reg.getLocalCommandTypes()) {
@@ -165,8 +160,7 @@ public class Help implements Runnable {
 
     protected void writeCommand(CommandType cmd, StringBuilder sb) {
         ANSIBuffer buf = getCommandHelp(cmd, true);
-        sb.append("h2. ").append(cmd.getName()).append("\n").append(
-                buf.toString(false));
+        sb.append("h2. ").append(cmd.getName()).append("\n").append(buf.toString(false));
     }
 
     protected ANSIBuffer getCommandHelp(CommandType cmd, boolean wiki) {
@@ -181,8 +175,8 @@ public class Help implements Runnable {
         String[] aliases = cmd.getAliases();
         if (aliases != null && aliases.length > 0) {
             if (aliases != null && aliases.length > 0) {
-                header(buf, "ALIASES", wiki).append(ShellConsole.CRLF).append(
-                        "\t").append(StringUtils.join(aliases, ", "));
+                header(buf, "ALIASES", wiki).append(ShellConsole.CRLF).append("\t").append(
+                        StringUtils.join(aliases, ", "));
                 buf.append(ShellConsole.CRLF).append(ShellConsole.CRLF);
             }
         }
@@ -197,8 +191,7 @@ public class Help implements Runnable {
                     buf.append("*");
                 }
                 String flag = tok.isRequired ? " - " : " - [flag] - ";
-                buf.append("\t" + tok.name + flag + tok.help).append(
-                        ShellConsole.CRLF);
+                buf.append("\t" + tok.name + flag + tok.help).append(ShellConsole.CRLF);
             }
             buf.append(ShellConsole.CRLF);
         }
@@ -208,16 +201,13 @@ public class Help implements Runnable {
                 if (wiki) {
                     buf.append("*");
                 }
-                String flag = tok.isRequired ? " - [required] - "
-                        : " - [optional] -";
-                buf.append("\t" + tok.name + flag + tok.help).append(
-                        ShellConsole.CRLF);
+                String flag = tok.isRequired ? " - [required] - " : " - [optional] -";
+                buf.append("\t" + tok.name + flag + tok.help).append(ShellConsole.CRLF);
             }
             buf.append(ShellConsole.CRLF);
         }
 
-        InputStream in = cmd.getCommandClass().getResourceAsStream(
-                cmd.getCommandClass().getSimpleName() + ".help");
+        InputStream in = cmd.getCommandClass().getResourceAsStream(cmd.getCommandClass().getSimpleName() + ".help");
         if (in != null) {
             try {
                 String content = FileSystem.readContent(in);

@@ -24,7 +24,6 @@ import org.nuxeo.shell.automation.AutomationFeature;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "disconnect", help = "Close current connection to server. If not connected nothing is done.")
 public class Disconnect implements Runnable {

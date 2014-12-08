@@ -30,7 +30,6 @@ import org.nuxeo.shell.ShellException;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public abstract class AbstractCommandType implements CommandType {
 
@@ -42,13 +41,12 @@ public abstract class AbstractCommandType implements CommandType {
 
     protected List<Token> args;
 
-    public AbstractCommandType(Class<? extends Runnable> cmdClass,
-            List<Setter> injectable, Map<String, Token> params, List<Token> args) {
+    public AbstractCommandType(Class<? extends Runnable> cmdClass, List<Setter> injectable, Map<String, Token> params,
+            List<Token> args) {
         this.cmdClass = cmdClass;
         this.params = params == null ? new HashMap<String, Token>() : params;
         this.args = args == null ? new ArrayList<Token>() : args;
-        this.injectable = injectable == null ? new ArrayList<Setter>()
-                : injectable;
+        this.injectable = injectable == null ? new ArrayList<Setter>() : injectable;
     }
 
     public Class<?> getCommandClass() {
@@ -85,8 +83,7 @@ public abstract class AbstractCommandType implements CommandType {
         return buf.toString();
     }
 
-    public Runnable newInstance(Shell shell, String... line)
-            throws ShellException {
+    public Runnable newInstance(Shell shell, String... line) throws ShellException {
         Runnable cmd;
         try {
             cmd = createInstance(shell);
@@ -102,9 +99,8 @@ public abstract class AbstractCommandType implements CommandType {
     }
 
     /**
-     * The last element in line must be an empty element (e.g. "") if you need
-     * the next argument that may match. If the last element is not empty then
-     * this element will be returned as an argument or parameter.
+     * The last element in line must be an empty element (e.g. "") if you need the next argument that may match. If the
+     * last element is not empty then this element will be returned as an argument or parameter.
      *
      * @param line
      * @return
@@ -147,8 +143,7 @@ public abstract class AbstractCommandType implements CommandType {
                 result.add(key);
             }
         }
-        return result.isEmpty() ? null : new SimpleCompletor(
-                result.toArray(new String[result.size()]));
+        return result.isEmpty() ? null : new SimpleCompletor(result.toArray(new String[result.size()]));
     }
 
     public Completor getLastTokenCompletor(Shell shell, String... line) {
@@ -169,16 +164,13 @@ public abstract class AbstractCommandType implements CommandType {
             try {
                 return arg.completor.newInstance();
             } catch (Throwable t) {
-                throw new ShellException("Failed to load completor: "
-                        + arg.completor, t);
+                throw new ShellException("Failed to load completor: " + arg.completor, t);
             }
         }
-        return shell.getCompletorProvider().getCompletor(shell, this,
-                arg.setter.getType());
+        return shell.getCompletorProvider().getCompletor(shell, this, arg.setter.getType());
     }
 
-    protected void inject(Shell shell, Runnable cmd, String... line)
-            throws ShellException {
+    protected void inject(Shell shell, Runnable cmd, String... line) throws ShellException {
         for (Setter s : injectable) {
             s.set(cmd, shell.getContextObject(s.getType()));
         }
@@ -195,30 +187,22 @@ public abstract class AbstractCommandType implements CommandType {
                 if (!arg.isRequired) {
                     v = "true";
                 } else if (i == line.length - 1) {
-                    throw new ShellException("Parameter " + key
-                            + " must have a value");
+                    throw new ShellException("Parameter " + key + " must have a value");
                 } else {
                     v = line[++i];
                 }
-                arg.setter.set(
-                        cmd,
-                        shell.getValueAdapter().getValue(shell,
-                                arg.setter.getType(), v));
+                arg.setter.set(cmd, shell.getValueAdapter().getValue(shell, arg.setter.getType(), v));
             } else {
                 if (index >= argCount) {
                     throw new ShellException("Too many arguments");
                 }
                 Token arg = args.get(index++);
-                arg.setter.set(
-                        cmd,
-                        shell.getValueAdapter().getValue(shell,
-                                arg.setter.getType(), key));
+                arg.setter.set(cmd, shell.getValueAdapter().getValue(shell, arg.setter.getType(), key));
             }
         }
         for (int i = index; i < argCount; i++) {
             if (args.get(i).isRequired) {
-                throw new ShellException("Required argument "
-                        + args.get(i).name + " is missing");
+                throw new ShellException("Required argument " + args.get(i).name + " is missing");
             }
         }
     }

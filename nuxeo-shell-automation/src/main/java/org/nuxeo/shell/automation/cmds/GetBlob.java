@@ -32,7 +32,6 @@ import org.nuxeo.shell.fs.FileSystem;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "getfile", help = "Get a document attached file")
 public class GetBlob implements Runnable {

@@ -29,7 +29,6 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class Connector {
 
@@ -44,11 +43,9 @@ public class Connector {
     public static Connector newConnector(String address) {
         int p = address.indexOf(':');
         if (p == -1) {
-            throw new ShellException("Illegal address '" + address
-                    + "'. Must be in format 'host:port'");
+            throw new ShellException("Illegal address '" + address + "'. Must be in format 'host:port'");
         }
-        return new Connector(address.substring(0, p),
-                Integer.parseInt(address.substring(p + 1)));
+        return new Connector(address.substring(0, p), Integer.parseInt(address.substring(p + 1)));
     }
 
     public Connector(String host, int port) {
@@ -59,8 +56,7 @@ public class Connector {
             out = new PrintWriter(socket.getOutputStream());
             initConnection();
         } catch (Exception e) {
-            throw new ShellException("Failed to connect to " + host + ':'
-                    + port);
+            throw new ShellException("Failed to connect to " + host + ':' + port);
         }
     }
 
@@ -134,8 +130,8 @@ public class Connector {
     }
 
     /**
-     * Get the response and remove the ending "osgi>" if present - also trim the
-     * string before returning. (CRLF is not included at the end)
+     * Get the response and remove the ending "osgi>" if present - also trim the string before returning. (CRLF is not
+     * included at the end)
      *
      * @return
      * @throws IOException
@@ -146,8 +142,7 @@ public class Connector {
         int r = in.read(cbuf);
         while (r > 0) {
             result.append(new String(cbuf, 0, r));
-            if (result.lastIndexOf("osgi> ") == result.length()
-                    - "osgi> ".length()) {
+            if (result.lastIndexOf("osgi> ") == result.length() - "osgi> ".length()) {
                 break;
             }
             r = in.read(cbuf);

@@ -28,7 +28,6 @@ import org.nuxeo.shell.equinox.EquinoxFeature;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "connect", help = "Connect to a remote osgi platform")
 public class Connect implements Runnable {
@@ -60,8 +59,7 @@ public class Connect implements Runnable {
             password = shell.getConsole().readLine("Password: ", '*');
         }
         try {
-            shell.getFeature(EquinoxFeature.class).connect(url, username,
-                    password);
+            shell.getFeature(EquinoxFeature.class).connect(url, username, password);
         } catch (Exception e) {
             throw new ShellException("Failed to connect to " + url, e);
         }

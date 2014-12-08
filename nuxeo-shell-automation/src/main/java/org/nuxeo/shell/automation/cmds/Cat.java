@@ -36,7 +36,6 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "cat", help = "Print document details")
 public class Cat implements Runnable {
@@ -75,15 +74,12 @@ public class Cat implements Runnable {
         buf.append(ShellConsole.CRLF);
 
         if (doc.getLastModified() != null) {
-            buf.append("\tLast Modified: ").append(
-                    new SimpleDateFormat().format(doc.getLastModified()));
+            buf.append("\tLast Modified: ").append(new SimpleDateFormat().format(doc.getLastModified()));
             buf.append(ShellConsole.CRLF);
         }
-        buf.append("\tState: ").append(
-                doc.getState() == null ? "none" : doc.getState());
+        buf.append("\tState: ").append(doc.getState() == null ? "none" : doc.getState());
         buf.append(ShellConsole.CRLF);
-        buf.append("\tLock: ").append(
-                doc.getLock() == null ? "none" : doc.getLock());
+        buf.append("\tLock: ").append(doc.getLock() == null ? "none" : doc.getLock());
         buf.append(ShellConsole.CRLF);
         buf.append(ShellConsole.CRLF);
 

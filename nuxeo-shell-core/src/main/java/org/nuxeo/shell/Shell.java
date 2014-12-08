@@ -45,18 +45,12 @@ import org.nuxeo.shell.impl.DefaultValueAdapter;
 import org.nuxeo.shell.utils.StringUtils;
 
 /**
- *
- * There is a single instance of the shell in the VM. To get it call
- * {@link Shell#get()}.
- *
- * parse args if no cmd attempt to read from stdin a list of cmds or from a
- * faile -f if cmd run it. A cmd line instance is parsing a single command.
- * parsed data is injected into the command and then the command is run. a cmd
- * type is providing the info on how a command is injected. top level params
- * are: -h help -u username -p password -f batch file - batch from stdin
+ * There is a single instance of the shell in the VM. To get it call {@link Shell#get()}. parse args if no cmd attempt
+ * to read from stdin a list of cmds or from a faile -f if cmd run it. A cmd line instance is parsing a single command.
+ * parsed data is injected into the command and then the command is run. a cmd type is providing the info on how a
+ * command is injected. top level params are: -h help -u username -p password -f batch file - batch from stdin
  *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public final class Shell {
 
@@ -149,8 +143,7 @@ public final class Shell {
         listeners.add(listener);
     }
 
-    public void removeConfigurationChangeListener(
-            ShellConfigurationListener listener) {
+    public void removeConfigurationChangeListener(ShellConfigurationListener listener) {
         listeners.remove(listener);
     }
 
@@ -217,8 +210,7 @@ public final class Shell {
     }
 
     protected void loadFeatures() {
-        ServiceLoader<ShellFeature> loader = ServiceLoader.load(
-                ShellFeature.class, Shell.class.getClassLoader());
+        ServiceLoader<ShellFeature> loader = ServiceLoader.load(ShellFeature.class, Shell.class.getClassLoader());
         Iterator<ShellFeature> it = loader.iterator();
         while (it.hasNext()) {
             addFeature(it.next());
@@ -519,11 +511,9 @@ public final class Shell {
     }
 
     public void hello() throws IOException {
-        InputStream in = Shell.class.getClassLoader().getResourceAsStream(
-                "META-INF/hello.txt");
+        InputStream in = Shell.class.getClassLoader().getResourceAsStream("META-INF/hello.txt");
         if (in == null) {
-            getConsole().println(
-                    "Welcome to " + getClass().getSimpleName() + "!");
+            getConsole().println("Welcome to " + getClass().getSimpleName() + "!");
             getConsole().println("Type \"help\" for more information.");
         } else {
             try {
@@ -550,8 +540,7 @@ public final class Shell {
 
     public void addFeature(ShellFeature feature) {
         if (features.containsKey(feature.getClass())) {
-            throw new ShellException("Feature already registered: "
-                    + feature.getClass());
+            throw new ShellException("Feature already registered: " + feature.getClass());
         }
         feature.install(this);
         features.put(feature.getClass(), feature);
@@ -569,8 +558,7 @@ public final class Shell {
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
     public void loadConfig() throws IOException {
-        File file = new File(System.getProperty("user.home"),
-                ".nxshell/nxshell.properties");
+        File file = new File(System.getProperty("user.home"), ".nxshell/nxshell.properties");
         file.getParentFile().mkdirs();
         if (file.isFile()) {
             Properties props = new Properties();

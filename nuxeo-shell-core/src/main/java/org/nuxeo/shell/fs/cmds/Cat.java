@@ -29,7 +29,6 @@ import org.nuxeo.shell.fs.FileSystem;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "cat", help = "Print the content of a file")
 public class Cat implements Runnable {

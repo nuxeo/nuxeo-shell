@@ -26,7 +26,6 @@ import org.nuxeo.shell.equinox.EquinoxCommandCompletor;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "run", help = "Run an Equinox command")
 public class Run implements Runnable {

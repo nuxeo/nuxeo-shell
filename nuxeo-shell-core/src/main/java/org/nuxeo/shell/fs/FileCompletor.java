@@ -26,24 +26,20 @@ import jline.FileNameCompletor;
 import org.nuxeo.shell.Shell;
 
 /**
- * This is a modified {@link FileNameCompletor} to take into account the current
- * working directory
+ * This is a modified {@link FileNameCompletor} to take into account the current working directory
  *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class FileCompletor implements Completor {
     @SuppressWarnings("rawtypes")
-    public int complete(final String buf, final int cursor,
-            final List candidates) {
+    public int complete(final String buf, final int cursor, final List candidates) {
         String buffer = (buf == null) ? "" : buf;
 
         String translated = buffer;
 
         // special character: ~ maps to the user's home directory
         if (translated.startsWith("~" + File.separator)) {
-            translated = System.getProperty("user.home")
-                    + translated.substring(1);
+            translated = System.getProperty("user.home") + translated.substring(1);
         } else if (translated.startsWith("~")) {
             translated = new File(System.getProperty("user.home")).getParentFile().getAbsolutePath();
         } else if (!(translated.startsWith(File.separator))) {
@@ -77,21 +73,18 @@ public class FileCompletor implements Completor {
     }
 
     /**
-     * Match the specified <i>buffer</i> to the array of <i>entries</i> and
-     * enter the matches into the list of <i>candidates</i>. This method can be
-     * overridden in a subclass that wants to do more sophisticated file name
+     * Match the specified <i>buffer</i> to the array of <i>entries</i> and enter the matches into the list of
+     * <i>candidates</i>. This method can be overridden in a subclass that wants to do more sophisticated file name
      * completion.
      *
      * @param buffer the untranslated buffer
      * @param translated the buffer with common characters replaced
      * @param entries the list of files to match
      * @param candidates the list of candidates to populate
-     *
      * @return the offset of the match
      */
     @SuppressWarnings({ "rawtypes", "unchecked" })
-    public int matchFiles(String buffer, String translated, File[] entries,
-            List candidates) {
+    public int matchFiles(String buffer, String translated, File[] entries, List candidates) {
         if (entries == null) {
             return -1;
         }
@@ -112,12 +105,10 @@ public class FileCompletor implements Completor {
         for (int i = 0; i < entries.length; i++) {
             if (entries[i].getAbsolutePath().startsWith(translated)) {
                 String name = entries[i].getName()
-                        + (((matches == 1) && entries[i].isDirectory()) ? File.separator
-                                : " ");
+                        + (((matches == 1) && entries[i].isDirectory()) ? File.separator : " ");
 
                 /*
-                 * if (entries [i].isDirectory ()) { name = new ANSIBuffer
-                 * ().blue (name).toString (); }
+                 * if (entries [i].isDirectory ()) { name = new ANSIBuffer ().blue (name).toString (); }
                  */
                 candidates.add(name);
             }

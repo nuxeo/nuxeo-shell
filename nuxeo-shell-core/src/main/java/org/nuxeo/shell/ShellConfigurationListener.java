@@ -20,7 +20,6 @@ package org.nuxeo.shell;
  * An object notified about a shell setting change.
  *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public interface ShellConfigurationListener {
 

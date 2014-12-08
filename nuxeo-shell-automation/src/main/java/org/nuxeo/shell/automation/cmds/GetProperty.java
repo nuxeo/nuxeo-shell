@@ -27,7 +27,6 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "getp", help = "Get the value of a document property")
 public class GetProperty implements Runnable {
@@ -47,8 +46,7 @@ public class GetProperty implements Runnable {
             throw new ShellException("-xpath parameter is required!");
         }
         try {
-            Object p = ctx.getDocumentService().getDocument(doc, "*").getProperties().get(
-                    xpath);
+            Object p = ctx.getDocumentService().getDocument(doc, "*").getProperties().get(xpath);
             if (p != null) {
                 ctx.getShell().getConsole().println(p.toString());
             }

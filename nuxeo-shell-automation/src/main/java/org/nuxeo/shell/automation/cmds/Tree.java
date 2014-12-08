@@ -28,7 +28,6 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "tree", help = "List a subtree")
 public class Tree implements Runnable {
@@ -47,8 +46,7 @@ public class Tree implements Runnable {
 
     protected void printTree(ShellConsole console, Document root, String prefix) {
         try {
-            DocumentHelper.printName(console, root,
-                    prefix.length() == 0 ? prefix : prefix + "+- ");
+            DocumentHelper.printName(console, root, prefix.length() == 0 ? prefix : prefix + "+- ");
             prefix += "|  ";
             for (Document doc : ctx.getDocumentService().getChildren(root)) {
                 printTree(console, doc, prefix);

@@ -33,7 +33,6 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "runonfile", help = "Run a server automation chain that accepts a file as an input")
 public class RunChainWithFile implements Runnable {
@@ -58,8 +57,7 @@ public class RunChainWithFile implements Runnable {
 
     public void run() {
         try {
-            OperationRequest request = ctx.getSession().newRequest(chain).setInput(
-                    new FileBlob(file));
+            OperationRequest request = ctx.getSession().newRequest(chain).setInput(new FileBlob(file));
             if (ctxVars != null) {
                 for (String pair : ctxVars.split(sep)) {
                     String[] ar = StringUtils.split(pair, '=', true);

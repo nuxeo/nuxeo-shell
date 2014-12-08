@@ -27,7 +27,6 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "mv", help = "Move a document")
 public class Mv implements Runnable {
@@ -50,8 +49,7 @@ public class Mv implements Runnable {
         try {
             ctx.getDocumentService().move(srcRef, dstRef, name);
         } catch (Exception e) {
-            throw new ShellException("Failed to move document " + srcRef
-                    + " to " + dstRef, e);
+            throw new ShellException("Failed to move document " + srcRef + " to " + dstRef, e);
         }
 
     }

@@ -28,7 +28,6 @@ import org.nuxeo.shell.automation.AutomationFeature;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "connect", help = "Connect to a remote automation server")
 public class Connect implements Runnable {
@@ -44,10 +43,10 @@ public class Connect implements Runnable {
 
     @Parameter(name = "-p", hasValue = true, help = "The password")
     protected String password;
-    
+
     @Parameter(name = "-d", hasValue = true, help = "The initial directory")
     protected String initialDirectory;
-    
+
     public void run() {
         Map<String, String> args = (Map<String, String>) shell.getMainArguments();
         if (username == null && args != null) {
@@ -69,11 +68,10 @@ public class Connect implements Runnable {
             password = shell.getConsole().readLine("Password: ", '*');
         }
         try {
-            shell.getFeature(AutomationFeature.class).connect(url, username,
-                    password, initialDirectory);
+            shell.getFeature(AutomationFeature.class).connect(url, username, password, initialDirectory);
         } catch (ShellException e) {
             throw e;
-        } catch(Throwable e) {
+        } catch (Throwable e) {
             throw new ShellException("Failed to connect to " + url, e);
         }
     }

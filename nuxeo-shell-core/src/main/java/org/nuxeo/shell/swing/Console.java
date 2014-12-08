@@ -39,13 +39,11 @@ import org.nuxeo.shell.cmds.ConsoleReaderFactory;
 import org.nuxeo.shell.swing.widgets.HistoryFinder;
 
 /**
- * The conversation with jline ConsoleReader is limited to execute a command and
- * get the command output. All the other detials like typing, auto completion,
- * moving cursor, history etc. is using pure swing code without any transfer
+ * The conversation with jline ConsoleReader is limited to execute a command and get the command output. All the other
+ * detials like typing, auto completion, moving cursor, history etc. is using pure swing code without any transfer
  * between the jline console reader and the swing component.
  *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @SuppressWarnings("serial")
 public class Console extends JTextArea implements ConsoleReaderFactory {
@@ -87,14 +85,10 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
     }
 
     protected void registerCommands(Shell shell) {
-        shell.getRegistry("config").addAnnotatedCommand(
-                org.nuxeo.shell.swing.cmds.FontCommand.class);
-        shell.getRegistry("config").addAnnotatedCommand(
-                org.nuxeo.shell.swing.cmds.ThemeCommand.class);
-        shell.getRegistry("config").addAnnotatedCommand(
-                org.nuxeo.shell.swing.cmds.ColorCommand.class);
-        shell.getRegistry("config").addAnnotatedCommand(
-                org.nuxeo.shell.swing.cmds.BgColorCommand.class);
+        shell.getRegistry("config").addAnnotatedCommand(org.nuxeo.shell.swing.cmds.FontCommand.class);
+        shell.getRegistry("config").addAnnotatedCommand(org.nuxeo.shell.swing.cmds.ThemeCommand.class);
+        shell.getRegistry("config").addAnnotatedCommand(org.nuxeo.shell.swing.cmds.ColorCommand.class);
+        shell.getRegistry("config").addAnnotatedCommand(org.nuxeo.shell.swing.cmds.BgColorCommand.class);
     }
 
     protected void registerThemes(Shell shell) {
@@ -259,8 +253,7 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
     }
 
     public void beep() {
-        if (Boolean.parseBoolean((String) Shell.get().getProperty(
-                "shell.visual_bell", "false"))) {
+        if (Boolean.parseBoolean((String) Shell.get().getProperty("shell.visual_bell", "false"))) {
             visualBell();
         }
         audibleBell();
@@ -359,15 +352,13 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
             }
         case KeyEvent.VK_I:
             if (event.isMetaDown()) {
-                Font font = new Font(Font.MONOSPACED, Font.PLAIN,
-                        getFont().getSize() + 1);
+                Font font = new Font(Font.MONOSPACED, Font.PLAIN, getFont().getSize() + 1);
                 setFont(font);
                 return true;
             }
         case KeyEvent.VK_O:
             if (event.isMetaDown()) {
-                Font font = new Font(Font.MONOSPACED, Font.PLAIN,
-                        getFont().getSize() - 1);
+                Font font = new Font(Font.MONOSPACED, Font.PLAIN, getFont().getSize() - 1);
                 setFont(font);
                 return true;
             }
@@ -416,8 +407,7 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
                 e.printStackTrace();
             }
             if (buf.length() == 0) {
-                throw new IllegalStateException(
-                        "invalid state for console input stream");
+                throw new IllegalStateException("invalid state for console input stream");
             }
             char c = buf.charAt(0);
             buf.deleteCharAt(0);

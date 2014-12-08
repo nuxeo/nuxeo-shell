@@ -21,7 +21,6 @@ import org.nuxeo.shell.Shell;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class ConfigurationCommands extends CommandRegistry {
 

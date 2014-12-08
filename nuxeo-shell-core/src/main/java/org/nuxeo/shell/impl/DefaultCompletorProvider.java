@@ -31,7 +31,6 @@ import org.nuxeo.shell.fs.FileCompletor;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class DefaultCompletorProvider implements CompletorProvider {
 

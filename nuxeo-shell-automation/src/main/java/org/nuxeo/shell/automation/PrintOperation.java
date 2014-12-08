@@ -31,7 +31,6 @@ import org.nuxeo.shell.ShellException;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "print", help = "Print operation(s) definition")
 public class PrintOperation implements Runnable {
@@ -56,8 +55,8 @@ public class PrintOperation implements Runnable {
             String url = ctx.getClient().getBaseUrl();
             HttpGet get = new HttpGet(url + (name == null ? "" : name));
             if (u != null && p != null) {
-                //TODO be able to reuse the context of the automation client
-                get.setHeader("Authorization", "Basic "+Base64.encode(u+":"+p));
+                // TODO be able to reuse the context of the automation client
+                get.setHeader("Authorization", "Basic " + Base64.encode(u + ":" + p));
             }
             HttpResponse r = ctx.getClient().http().execute(get);
             InputStream in = r.getEntity().getContent();

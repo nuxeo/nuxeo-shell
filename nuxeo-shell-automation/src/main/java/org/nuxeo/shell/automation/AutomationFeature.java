@@ -36,14 +36,12 @@ import org.nuxeo.shell.automation.cmds.RemoteCommands;
 import org.nuxeo.shell.cmds.GlobalCommands;
 
 /**
- * The automation feature is providing connection with Nuxeo servers through
- * automation service and remote commands based on operations.
+ * The automation feature is providing connection with Nuxeo servers through automation service and remote commands
+ * based on operations.
  *
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
-public class AutomationFeature implements ShellFeature, ValueAdapter,
-        CompletorProvider {
+public class AutomationFeature implements ShellFeature, ValueAdapter, CompletorProvider {
 
     public static final String AUTOMATION_NS = "automation";
 
@@ -54,11 +52,11 @@ public class AutomationFeature implements ShellFeature, ValueAdapter,
         shell.addCompletorProvider(this);
         shell.addValueAdapter(this);
         shell.addRegistry(RemoteCommands.INSTANCE);
-        shell.getVersions().add("Nuxeo Server Minimal Version: "+getNuxeoServerVersion());
+        shell.getVersions().add("Nuxeo Server Minimal Version: " + getNuxeoServerVersion());
     }
 
-    public HttpAutomationClient connect(String url, String username,
-            String password, String initialDirectory) throws Exception {
+    public HttpAutomationClient connect(String url, String username, String password, String initialDirectory)
+            throws Exception {
         if (isConnected()) {
             disconnect();
         }

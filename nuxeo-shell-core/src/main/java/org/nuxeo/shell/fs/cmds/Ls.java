@@ -27,7 +27,6 @@ import org.nuxeo.shell.fs.FileSystem;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "ls", help = "List file names in a local directory")
 public class Ls implements Runnable {

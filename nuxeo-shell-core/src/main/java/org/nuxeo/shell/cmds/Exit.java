@@ -22,7 +22,6 @@ import org.nuxeo.shell.ShellException;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "exit", aliases = "quit", help = "Exit the interactive shell")
 public class Exit implements Runnable {

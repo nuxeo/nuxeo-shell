@@ -23,15 +23,13 @@ import org.nuxeo.shell.ValueAdapter;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class FileValueAdapter implements ValueAdapter {
 
     @SuppressWarnings("unchecked")
     public <T> T getValue(Shell shell, Class<T> type, String value) {
         if (type == File.class) {
-            return (T) shell.getContextObject(FileSystem.class).resolveFile(
-                    value);
+            return (T) shell.getContextObject(FileSystem.class).resolveFile(value);
         }
         return null;
     }

@@ -20,7 +20,6 @@ import org.nuxeo.shell.ShellConsole;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class DefaultConsole implements ShellConsole {
 

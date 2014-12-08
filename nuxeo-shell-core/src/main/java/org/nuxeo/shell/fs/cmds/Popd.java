@@ -23,7 +23,6 @@ import org.nuxeo.shell.fs.FileSystem;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "popd", help = "Pop working directory")
 public class Popd implements Runnable {

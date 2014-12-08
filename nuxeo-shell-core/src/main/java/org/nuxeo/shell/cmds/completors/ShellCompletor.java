@@ -30,7 +30,6 @@ import org.nuxeo.shell.cmds.Interactive;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class ShellCompletor implements Completor {
 
@@ -45,8 +44,7 @@ public class ShellCompletor implements Completor {
 
     @SuppressWarnings("rawtypes")
     public int complete(String buffer, int cursor, List candidates) {
-        jline.ArgumentCompletor.ArgumentList list = new WhitespaceArgumentDelimiter().delimit(
-                buffer, cursor);
+        jline.ArgumentCompletor.ArgumentList list = new WhitespaceArgumentDelimiter().delimit(buffer, cursor);
         String[] args = list.getArguments();
         // the current arg text (null if empty - i.e. after a space)
         String argText = list.getCursorArgument();

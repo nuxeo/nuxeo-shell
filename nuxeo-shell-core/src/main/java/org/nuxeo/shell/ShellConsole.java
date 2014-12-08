@@ -18,7 +18,6 @@ package org.nuxeo.shell;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public interface ShellConsole {
 

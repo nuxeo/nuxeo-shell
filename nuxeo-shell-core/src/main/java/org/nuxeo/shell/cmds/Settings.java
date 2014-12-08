@@ -28,7 +28,6 @@ import org.nuxeo.shell.fs.cmds.Cat;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "settings", help = "Print or modify the shell settings.")
 public class Settings implements Runnable {
@@ -55,8 +54,7 @@ public class Settings implements Runnable {
             if (name == null) {
                 Cat.cat(shell.getConsole(), file);
             } else if (value == null) {
-                shell.getConsole().println(
-                        (String) shell.getSetting(name, "NULL"));
+                shell.getConsole().println((String) shell.getSetting(name, "NULL"));
             } else {
                 shell.setSetting(name, value);
             }

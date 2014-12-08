@@ -32,7 +32,6 @@ import org.nuxeo.shell.ShellException;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class DefaultCommandType extends AbstractCommandType {
 
@@ -43,8 +42,7 @@ public class DefaultCommandType extends AbstractCommandType {
     protected List<Token> args;
 
     @SuppressWarnings("unchecked")
-    public static DefaultCommandType fromAnnotatedClass(String className)
-            throws ShellException {
+    public static DefaultCommandType fromAnnotatedClass(String className) throws ShellException {
         Class<Runnable> cls;
         try {
             cls = (Class<Runnable>) Class.forName(className);
@@ -54,15 +52,13 @@ public class DefaultCommandType extends AbstractCommandType {
         return fromAnnotatedClass(cls);
     }
 
-    public static DefaultCommandType fromAnnotatedClass(
-            Class<? extends Runnable> cls) throws ShellException {
+    public static DefaultCommandType fromAnnotatedClass(Class<? extends Runnable> cls) throws ShellException {
         HashMap<String, Token> params = new HashMap<String, Token>();
         ArrayList<Token> args = new ArrayList<Token>();
         ArrayList<Setter> injectable = new ArrayList<Setter>();
         Command cmd = cls.getAnnotation(Command.class);
         if (cmd == null) {
-            throw new ShellException("Class " + cls
-                    + " is not a command. You must annotated it with @Command");
+            throw new ShellException("Class " + cls + " is not a command. You must annotated it with @Command");
         }
         for (Field field : cls.getDeclaredFields()) {
             Parameter param = field.getAnnotation(Parameter.class);
@@ -121,8 +117,8 @@ public class DefaultCommandType extends AbstractCommandType {
         return new DefaultCommandType(cls, injectable, params, args);
     }
 
-    public DefaultCommandType(Class<? extends Runnable> cmdClass,
-            List<Setter> injectable, Map<String, Token> params, List<Token> args) {
+    public DefaultCommandType(Class<? extends Runnable> cmdClass, List<Setter> injectable, Map<String, Token> params,
+            List<Token> args) {
         super(cmdClass, injectable, params, args);
     }
 
@@ -148,9 +144,7 @@ public class DefaultCommandType extends AbstractCommandType {
             method.setAccessible(true);
             Class<?>[] types = method.getParameterTypes();
             if (types.length != 1) {
-                throw new IllegalArgumentException(
-                        "Invalid method setter should take one argument. Method: "
-                                + method);
+                throw new IllegalArgumentException("Invalid method setter should take one argument. Method: " + method);
             }
             type = types[0];
         }

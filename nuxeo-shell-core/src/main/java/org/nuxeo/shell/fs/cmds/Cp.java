@@ -27,7 +27,6 @@ import org.nuxeo.shell.fs.FileSystem;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "cp", help = "Copy a file or directory")
 public class Cp implements Runnable {

@@ -24,7 +24,6 @@ import org.nuxeo.shell.equinox.Connector;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "packages", help = "Display imported/exported package details")
 public class Packages implements Runnable {

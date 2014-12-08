@@ -36,7 +36,6 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "perms", help = "Set or view permissions on a document")
 public class Perms implements Runnable {
@@ -76,29 +75,24 @@ public class Perms implements Runnable {
         }
     }
 
-    protected void setAcl(DocRef doc, String acl, String grant, String deny)
-            throws Exception {
+    protected void setAcl(DocRef doc, String acl, String grant, String deny) throws Exception {
         if (grant != null) {
             String[] ar = StringUtils.split(grant, ':', true);
             if (ar.length != 2) {
-                throw new ShellException(
-                        "Invalid grant expression: Use \"user:permission\".");
+                throw new ShellException("Invalid grant expression: Use \"user:permission\".");
             }
             ctx.getDocumentService().setPermission(doc, ar[0], ar[1], acl, true);
         }
         if (deny != null) {
             String[] ar = StringUtils.split(deny, ':', true);
             if (ar.length != 2) {
-                throw new ShellException(
-                        "Invalid deny expression: Use \"user:permission\".");
+                throw new ShellException("Invalid deny expression: Use \"user:permission\".");
             }
-            ctx.getDocumentService().setPermission(doc, ar[0], ar[1], acl,
-                    false);
+            ctx.getDocumentService().setPermission(doc, ar[0], ar[1], acl, false);
         }
     }
 
-    protected void printAcl(ShellConsole console, DocRef doc, String acl)
-            throws Exception {
+    protected void printAcl(ShellConsole console, DocRef doc, String acl) throws Exception {
         HashMap<String, Object> ctx = new HashMap<String, Object>();
         if (acl != null) {
             ctx.put("acl", acl);
@@ -112,8 +106,7 @@ public class Perms implements Runnable {
 
     protected void removeAcl(DocRef doc, String acl) throws Exception {
         if (acl == null) {
-            throw new ShellException(
-                    "In remove mode the -acl parameter is required!");
+            throw new ShellException("In remove mode the -acl parameter is required!");
         }
         ctx.getDocumentService().removeAcl(doc, acl);
     }

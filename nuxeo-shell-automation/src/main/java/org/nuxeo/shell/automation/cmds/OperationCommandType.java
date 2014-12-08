@@ -37,7 +37,6 @@ import org.nuxeo.shell.impl.AbstractCommandType;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class OperationCommandType extends AbstractCommandType {
 
@@ -94,8 +93,7 @@ public class OperationCommandType extends AbstractCommandType {
             tok.name = "-" + param.name;
             tok.help = "";
             tok.isRequired = true;
-            OperationParamSetter os = new OperationParamSetter(param.name,
-                    param.getType());
+            OperationParamSetter os = new OperationParamSetter(param.name, param.getType());
             tok.setter = os;
             tok.completor = os.completor;
             params.put(tok.name, tok);
@@ -143,8 +141,7 @@ public class OperationCommandType extends AbstractCommandType {
         return TYPE_VOID;
     }
 
-    public OperationCommandType(int inputType, OperationDocumentation op,
-            Map<String, Token> params, List<Token> args) {
+    public OperationCommandType(int inputType, OperationDocumentation op, Map<String, Token> params, List<Token> args) {
         super(OperationCommand.class, null, params, args);
         this.op = op;
         this.inputType = inputType;

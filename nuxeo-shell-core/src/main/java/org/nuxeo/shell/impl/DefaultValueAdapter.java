@@ -24,7 +24,6 @@ import org.nuxeo.shell.ValueAdapter;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class DefaultValueAdapter implements ValueAdapter {
 
@@ -45,8 +44,7 @@ public class DefaultValueAdapter implements ValueAdapter {
             } else if (type == Double.TYPE) {
                 return (T) Double.valueOf(value);
             } else if (type == Character.TYPE) {
-                return (T) (Character.valueOf(value == null
-                        || value.length() == 0 ? '\0' : value.charAt(0)));
+                return (T) (Character.valueOf(value == null || value.length() == 0 ? '\0' : value.charAt(0)));
             }
         } else if (type == Boolean.class) {
             return (T) Boolean.valueOf(value);
@@ -61,8 +59,7 @@ public class DefaultValueAdapter implements ValueAdapter {
                 return (T) Double.valueOf(value);
             }
         } else if (type == Character.class) {
-            return (T) (Character.valueOf(value == null || value.length() == 0 ? '\0'
-                    : value.charAt(0)));
+            return (T) (Character.valueOf(value == null || value.length() == 0 ? '\0' : value.charAt(0)));
         } else if (CommandType.class.isAssignableFrom(type)) {
             CommandType cmd = shell.getActiveRegistry().getCommandType(value);
             if (cmd == null) {

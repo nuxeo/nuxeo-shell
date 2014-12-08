@@ -25,7 +25,6 @@ import jline.ANSIBuffer;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class ANSICodes {
 
@@ -116,8 +115,7 @@ public class ANSICodes {
         }
     }
 
-    public static void append(ANSIBuffer buf, String text, String codeKey,
-            boolean wiki) {
+    public static void append(ANSIBuffer buf, String text, String codeKey, boolean wiki) {
         int code = getCode(codeKey);
         if (code > -1) {
             if (wiki && code == BOLD) {
@@ -132,8 +130,7 @@ public class ANSICodes {
         }
     }
 
-    public static void appendTemplate(ANSIBuffer buf, String content,
-            boolean wiki) {
+    public static void appendTemplate(ANSIBuffer buf, String content, boolean wiki) {
         Matcher m = TPL.matcher(content);
         int s = 0;
         while (m.find(s)) {

@@ -31,7 +31,6 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "run", help = "Run a server automation chain that accepts a document or void input")
 public class RunChainWithDoc implements Runnable {
@@ -57,8 +56,7 @@ public class RunChainWithDoc implements Runnable {
     public void run() {
         try {
             Document doc = ctx.resolveDocument(path);
-            OperationRequest request = ctx.getSession().newRequest(chain).setInput(
-                    doc);
+            OperationRequest request = ctx.getSession().newRequest(chain).setInput(doc);
             if (ctxVars != null) {
                 for (String pair : ctxVars.split(sep)) {
                     String[] ar = StringUtils.split(pair, '=', true);

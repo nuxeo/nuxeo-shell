@@ -21,7 +21,6 @@ import jline.Terminal;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class SwingTerminal extends Terminal {
 
@@ -81,16 +80,14 @@ public class SwingTerminal extends Terminal {
     }
 
     @Override
-    public void beforeReadLine(ConsoleReader reader, String prompt,
-            Character mask) {
+    public void beforeReadLine(ConsoleReader reader, String prompt, Character mask) {
         if (mask != null) {
             console.setMask(mask);
         }
     }
 
     @Override
-    public void afterReadLine(ConsoleReader reader, String prompt,
-            Character mask) {
+    public void afterReadLine(ConsoleReader reader, String prompt, Character mask) {
         console.setMask(null);
     }
 }

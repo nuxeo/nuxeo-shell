@@ -27,7 +27,6 @@ import org.nuxeo.shell.swing.Console;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "theme", help = "Modify the theme used by the shell. This command is available only in UI mode.")
 public class ThemeCommand implements Runnable {

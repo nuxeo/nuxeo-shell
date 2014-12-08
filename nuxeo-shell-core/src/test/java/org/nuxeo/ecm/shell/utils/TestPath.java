@@ -14,66 +14,65 @@ public class TestPath {
     public void testPathInit() {
         Path path = new Path("/");
         assertEquals(path.lastSegment(), null);
-        
+
         path = new Path("/foo");
-        assertEquals(path.lastSegment(),"foo");
-        
+        assertEquals(path.lastSegment(), "foo");
+
         path = path.append(new Path(".bar"));
-        assertEquals(path.lastSegment(),".bar");
-        
+        assertEquals(path.lastSegment(), ".bar");
+
         path = new Path("/.foo");
-        assertEquals(path.lastSegment(),".foo");
+        assertEquals(path.lastSegment(), ".foo");
         assertEquals(1, path.segmentCount());
-        
+
         path = new Path("/foo/bar");
-        assertEquals(path.lastSegment(),"bar");
+        assertEquals(path.lastSegment(), "bar");
         assertEquals(2, path.segmentCount());
-        
+
         path = new Path("/foo/.bar");
-        assertEquals(path.lastSegment(),".bar");
+        assertEquals(path.lastSegment(), ".bar");
         assertEquals(2, path.segmentCount());
-        
+
         path = new Path("/./.foo");
         assertEquals(path.lastSegment(), ".foo");
         assertEquals(1, path.segmentCount());
-        
+
         path = new Path("/../.foo");
         assertEquals(path.lastSegment(), ".foo");
         assertEquals(2, path.segmentCount());
-        
+
         path = new Path("//.foo");
         assertEquals(path.lastSegment(), ".foo");
         assertEquals(1, path.segmentCount());
 
         path = new Path("//foo/.//../.bar");
         assertEquals(path.lastSegment(), ".bar");
-        assertEquals(1, path.segmentCount()); //XXX: hard to explain?
+        assertEquals(1, path.segmentCount()); // XXX: hard to explain?
     }
 
     @Test
     public void testRemoveSegments() {
         Path path = new Path("/");
         assertEquals(path.removeFirstSegments(1), new Path(""));
-        
+
         path = new Path("/foo");
         assertEquals(path.removeFirstSegments(1), new Path(""));
         assertEquals(path.removeFirstSegments(2), new Path(""));
-        
+
         path = new Path("/foo/bar");
         assertEquals(path.removeFirstSegments(1), new Path("bar")); // should be /bar
         assertEquals(path.removeFirstSegments(2), new Path(""));
-        
-        
+
         path = new Path("//foo/.//../.bar");
         assertEquals(path.lastSegment(), ".bar");
         assertEquals(path.removeFirstSegments(1), new Path("")); // why only one segment?
-        
+
     }
-    
+
     /*
-     *  Below are tests from nuxeo-common:Path to check we have almost a similar behavior
+     * Below are tests from nuxeo-common:Path to check we have almost a similar behavior
      */
-    
+
     @Test
     public void test() {
         Path path = new Path("/a/b/c/d");
@@ -107,7 +106,7 @@ public class TestPath {
         Path path6 = new Path("/a//b/c/d");
 
         assertEquals(path, path);
-        //assertEquals(path, path2); // This behavior is different from nuxeo-common:Path
+        // assertEquals(path, path2); // This behavior is different from nuxeo-common:Path
         assertEquals(path, path3);
         assertEquals(path, path4);
         assertEquals(path, path5);
@@ -180,6 +179,4 @@ public class TestPath {
         assertEquals(path1.append(path2), path3);
     }
 
-    
-    
 }

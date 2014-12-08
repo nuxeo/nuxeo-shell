@@ -23,7 +23,6 @@ import jline.Completor;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public interface CommandType extends Comparable<CommandType> {
 
@@ -41,8 +40,7 @@ public interface CommandType extends Comparable<CommandType> {
 
     String getSyntax();
 
-    Runnable newInstance(Shell shell, String... line)
-            throws ShellException;
+    Runnable newInstance(Shell shell, String... line) throws ShellException;
 
     Completor getLastTokenCompletor(Shell shell, String... line);
 

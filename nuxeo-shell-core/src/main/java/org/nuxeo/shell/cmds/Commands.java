@@ -31,7 +31,6 @@ import org.nuxeo.shell.ShellConsole;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "commands", aliases = "cmds", help = "Print a list of available commands")
 public class Commands implements Runnable {

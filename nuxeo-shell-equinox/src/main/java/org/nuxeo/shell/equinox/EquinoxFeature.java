@@ -35,7 +35,6 @@ import org.nuxeo.shell.equinox.cmds.Status;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class EquinoxFeature extends CommandRegistry implements ShellFeature {
 

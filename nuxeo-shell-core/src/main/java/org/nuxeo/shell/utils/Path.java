@@ -25,7 +25,6 @@ import java.util.List;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class Path implements Serializable {
 
@@ -444,8 +443,7 @@ public class Path implements Serializable {
         }
         // use my leading separators and the tail's trailing separator
 
-        return new Path(newSegments, (flags & HAS_LEADING)
-                | (tail.hasTrailingSeparator() ? HAS_TRAILING : 0));
+        return new Path(newSegments, (flags & HAS_LEADING) | (tail.hasTrailingSeparator() ? HAS_TRAILING : 0));
     }
 
     public Path append(String tail) {

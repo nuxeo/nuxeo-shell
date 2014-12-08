@@ -20,13 +20,11 @@ import jline.SimpleCompletor;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class StateCompletor extends SimpleCompletor {
 
     public StateCompletor() {
-        super(new String[] { "INSTALLED", "UNINSTALLED", "RESOLVED",
-                "STARTING", "ACTIVE" });
+        super(new String[] { "INSTALLED", "UNINSTALLED", "RESOLVED", "STARTING", "ACTIVE" });
     }
 
 }

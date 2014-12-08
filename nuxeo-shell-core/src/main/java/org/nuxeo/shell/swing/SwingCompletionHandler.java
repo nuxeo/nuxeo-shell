@@ -33,7 +33,6 @@ import org.nuxeo.shell.Shell;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @SuppressWarnings({ "unchecked", "rawtypes" })
 public class SwingCompletionHandler implements CompletionHandler {
@@ -44,8 +43,7 @@ public class SwingCompletionHandler implements CompletionHandler {
         this.console = console;
     }
 
-    public boolean complete(ConsoleReader reader, List candidates, int position)
-            throws IOException {
+    public boolean complete(ConsoleReader reader, List candidates, int position) throws IOException {
         CursorBuffer buf = reader.getCursorBuffer();
 
         // if there is only one completion, then fill in the buffer
@@ -59,8 +57,7 @@ public class SwingCompletionHandler implements CompletionHandler {
             }
 
             position = console.getCmdLine().setCompletionWord(value);
-            console.setCaretPosition(console.getCmdLine().getCmdStart()
-                    + position);
+            console.setCaretPosition(console.getCmdLine().getCmdStart() + position);
             return true;
         } else if (candidates.size() > 1) {
             String value = getUnambiguousCompletions(candidates);
@@ -82,10 +79,9 @@ public class SwingCompletionHandler implements CompletionHandler {
     }
 
     /**
-     * Returns a root that matches all the {@link String} elements of the
-     * specified {@link List}, or null if there are no commalities. For example,
-     * if the list contains <i>foobar</i>, <i>foobaz</i>, <i>foobuz</i>, the
-     * method will return <i>foob</i>.
+     * Returns a root that matches all the {@link String} elements of the specified {@link List}, or null if there are
+     * no commalities. For example, if the list contains <i>foobar</i>, <i>foobaz</i>, <i>foobuz</i>, the method will
+     * return <i>foob</i>.
      */
     private final String getUnambiguousCompletions(final List candidates) {
         if ((candidates == null) || (candidates.size() == 0)) {
@@ -110,11 +106,9 @@ public class SwingCompletionHandler implements CompletionHandler {
     }
 
     /**
-     * @return true is all the elements of <i>candidates</i> start with
-     *         <i>starts</i>
+     * @return true is all the elements of <i>candidates</i> start with <i>starts</i>
      */
-    private final boolean startsWith(final String starts,
-            final String[] candidates) {
+    private final boolean startsWith(final String starts, final String[] candidates) {
         for (int i = 0; i < candidates.length; i++) {
             if (!candidates[i].startsWith(starts)) {
                 return false;
@@ -129,8 +123,7 @@ public class SwingCompletionHandler implements CompletionHandler {
 
         if (distinct.size() > console.reader.getAutoprintThreshhold()) {
             // if (!eagerNewlines)
-            if (JOptionPane.showConfirmDialog(console, "Display all "
-                    + distinct.size() + " possibilities? (y or n) ",
+            if (JOptionPane.showConfirmDialog(console, "Display all " + distinct.size() + " possibilities? (y or n) ",
                     "Completion Warning", JOptionPane.YES_NO_OPTION) == 1) {
                 return;
             }

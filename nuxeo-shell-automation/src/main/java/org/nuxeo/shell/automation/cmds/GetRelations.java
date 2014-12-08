@@ -31,7 +31,6 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "getrel", help = "Get realtions between two documents")
 public class GetRelations implements Runnable {
@@ -64,8 +63,7 @@ public class GetRelations implements Runnable {
         ShellConsole console = ctx.getShell().getConsole();
         DocRef docRef = ctx.resolveRef(path);
         try {
-            Documents docs = (Documents) ctx.getDocumentService().getRelations(
-                    docRef, predicate, outgoing, graphName);
+            Documents docs = (Documents) ctx.getDocumentService().getRelations(docRef, predicate, outgoing, graphName);
             for (Document doc : docs) {
                 DocumentHelper.printPath(console, doc);
             }

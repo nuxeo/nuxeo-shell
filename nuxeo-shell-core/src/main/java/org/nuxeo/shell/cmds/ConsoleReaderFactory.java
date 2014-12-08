@@ -20,7 +20,6 @@ import jline.ConsoleReader;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public interface ConsoleReaderFactory {
 

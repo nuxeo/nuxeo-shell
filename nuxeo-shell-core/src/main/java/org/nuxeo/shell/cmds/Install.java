@@ -29,7 +29,6 @@ import org.nuxeo.shell.fs.FileSystem;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "install", help = "Install a SH script to launch the shell in the terminal. Available only for UNIX systems.")
 public class Install implements Runnable {

@@ -39,7 +39,6 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "audit", help = "Run a query against audit service")
 public class Audit implements Runnable {
@@ -67,8 +66,8 @@ public class Audit implements Runnable {
 
     public void run() {
         try {
-            OperationRequest req = ctx.getSession().newRequest("Audit.Query").set(
-                    "query", query).set("maxResults", max).set("pageNo", page);
+            OperationRequest req = ctx.getSession().newRequest("Audit.Query").set("query", query).set("maxResults", max).set(
+                    "pageNo", page);
             if (queryVars != null) {
                 for (String pair : queryVars.split(sep)) {
                     String[] ar = StringUtils.split(pair, '=', true);
@@ -119,28 +118,28 @@ public class Audit implements Runnable {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode rows = mapper.readTree(content);
         if (!rows.isArray()) {
-            console.print("Invalid JSON object received:\n"+content);
+            console.print("Invalid JSON object received:\n" + content);
             return;
         }
         int len = rows.size();
         SimpleDateFormat fmt = new SimpleDateFormat();
         for (int i = 0; i < len; i++) {
             JsonNode obj = (JsonNode) rows.get(i);
-            printString(console,  obj, "eventId");
+            printString(console, obj, "eventId");
             console.print("\t");
-            printString(console,  obj, "category");
+            printString(console, obj, "category");
             console.print("\t");
-            printDate(console,  obj, "eventDate", fmt);
+            printDate(console, obj, "eventDate", fmt);
             console.print("\t");
-            printString(console,  obj, "principal");
+            printString(console, obj, "principal");
             console.print("\t");
-            printString(console,  obj, "docUUID");
+            printString(console, obj, "docUUID");
             console.print("\t");
-            printString(console,  obj, "docType");
+            printString(console, obj, "docType");
             console.print("\t");
-            printString(console,  obj, "docLifeCycle");
+            printString(console, obj, "docLifeCycle");
             console.print("\t");
-            printString(console,  obj, "comment");
+            printString(console, obj, "comment");
             console.println();
         }
     }

@@ -30,7 +30,6 @@ import org.nuxeo.shell.utils.Path;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "mkdir", help = "Create a document of the given type")
 public class MkDir implements Runnable {
@@ -55,8 +54,7 @@ public class MkDir implements Runnable {
             props.set("dc:title", title);
         }
         try {
-            ctx.getDocumentService().createDocument(parent, type,
-                    p.lastSegment(), props);
+            ctx.getDocumentService().createDocument(parent, type, p.lastSegment(), props);
         } catch (Exception e) {
             throw new ShellException(e);
         }

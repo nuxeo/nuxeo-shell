@@ -26,7 +26,6 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "fire", help = "Fire a core event in the context of the given document")
 public class Fire implements Runnable {

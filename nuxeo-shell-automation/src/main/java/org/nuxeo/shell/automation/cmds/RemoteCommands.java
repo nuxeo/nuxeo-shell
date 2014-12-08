@@ -29,7 +29,6 @@ import org.nuxeo.shell.utils.Path;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class RemoteCommands extends CommandRegistry {
 
@@ -119,8 +118,7 @@ public class RemoteCommands extends CommandRegistry {
             if (url != null && username != null && password != null) {
                 try {
                     shell.getConsole().println("Connecting to " + url + " ...");
-                    shell.getFeature(AutomationFeature.class).connect(url,
-                            username, password, dir);
+                    shell.getFeature(AutomationFeature.class).connect(url, username, password, dir);
                 } catch (Throwable t) {
                     throw new ShellException("Failed to connect to " + url, t);
                 }

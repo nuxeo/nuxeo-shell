@@ -26,7 +26,6 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class Theme {
 
@@ -37,12 +36,9 @@ public class Theme {
     protected static Font defFont = new Font(Font.MONOSPACED, Font.PLAIN, 14);
 
     static {
-        themes.put("Green", new Theme("Default", defFont, Color.GREEN,
-                Color.BLACK));
-        themes.put("Linux", new Theme("Linux", defFont, Color.WHITE,
-                Color.BLACK));
-        themes.put("Default", new Theme("White", defFont, Color.BLACK,
-                Color.WHITE));
+        themes.put("Green", new Theme("Default", defFont, Color.GREEN, Color.BLACK));
+        themes.put("Linux", new Theme("Linux", defFont, Color.WHITE, Color.BLACK));
+        themes.put("Default", new Theme("White", defFont, Color.BLACK, Color.WHITE));
     }
 
     public static void addTheme(Theme theme) {
@@ -88,8 +84,7 @@ public class Theme {
     }
 
     public static String getFontString(Font font) {
-        return font.getName().concat("-").concat(
-                getFontStyleName(font.getStyle())).concat("-").concat(
+        return font.getName().concat("-").concat(getFontStyleName(font.getStyle())).concat("-").concat(
                 String.valueOf(font.getSize()));
     }
 
@@ -114,16 +109,13 @@ public class Theme {
             rgb = rgb.substring(1);
         }
         if (rgb.length() != 6) {
-            throw new ShellException(
-                    "Invalid color: "
-                            + rgb
-                            + ". Should be #RRGGBB in hexa. The # character may be omited.");
+            throw new ShellException("Invalid color: " + rgb
+                    + ". Should be #RRGGBB in hexa. The # character may be omited.");
         }
         String r = rgb.substring(0, 2);
         String g = rgb.substring(2, 4);
         String b = rgb.substring(4);
-        return new Color(Integer.parseInt(r, 16), Integer.parseInt(g, 16),
-                Integer.parseInt(b, 16));
+        return new Color(Integer.parseInt(r, 16), Integer.parseInt(g, 16), Integer.parseInt(b, 16));
     }
 
     protected String name;
@@ -185,8 +177,7 @@ public class Theme {
     }
 
     public String toString() {
-        return getFontString(font).concat("; ").concat(getColorName(fg)).concat(
-                "; ").concat(getColorName(bg));
+        return getFontString(font).concat("; ").concat(getColorName(fg)).concat("; ").concat(getColorName(bg));
     }
 
 }

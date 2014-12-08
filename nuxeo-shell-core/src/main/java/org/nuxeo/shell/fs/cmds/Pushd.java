@@ -26,7 +26,6 @@ import org.nuxeo.shell.fs.FileSystem;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "pushd", help = "Push a new local working directory")
 public class Pushd implements Runnable {

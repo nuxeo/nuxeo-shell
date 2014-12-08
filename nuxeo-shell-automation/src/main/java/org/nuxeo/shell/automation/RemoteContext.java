@@ -33,7 +33,6 @@ import org.nuxeo.shell.utils.Path;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class RemoteContext {
 
@@ -55,8 +54,8 @@ public class RemoteContext {
 
     protected String host;
 
-    public RemoteContext(AutomationFeature feature,
-            HttpAutomationClient client, Session session, String dir) throws Exception {
+    public RemoteContext(AutomationFeature feature, HttpAutomationClient client, Session session, String dir)
+            throws Exception {
         this.shell = Shell.get();
         this.client = client;
         this.session = session;

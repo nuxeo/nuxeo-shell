@@ -33,7 +33,6 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- * 
  */
 public class OperationCommand implements Runnable {
 
@@ -56,8 +55,7 @@ public class OperationCommand implements Runnable {
     public OperationCommand() {
     }
 
-    public void init(OperationCommandType type, Shell shell,
-            OperationDocumentation op) {
+    public void init(OperationCommandType type, Shell shell, OperationDocumentation op) {
         try {
             this.type = type;
             this.shell = shell;
@@ -81,16 +79,13 @@ public class OperationCommand implements Runnable {
                 Cat.print(shell.getConsole(), (Document) result);
             } else if (result instanceof Documents) {
                 for (Document doc : (Documents) result) {
-                    shell.getConsole().println(
-                            doc.getPath() + " - " + doc.getTitle());
+                    shell.getConsole().println(doc.getPath() + " - " + doc.getTitle());
                 }
             } else if (result instanceof FileBlob) {
-                shell.getConsole().println(
-                        ((FileBlob) result).getFile().getAbsolutePath());
+                shell.getConsole().println(((FileBlob) result).getFile().getAbsolutePath());
             } else if (result instanceof Blobs) {
                 for (Blob blob : (Blobs) result) {
-                    shell.getConsole().println(
-                            ((FileBlob) blob).getFile().getAbsolutePath());
+                    shell.getConsole().println(((FileBlob) blob).getFile().getAbsolutePath());
                 }
             }
         } catch (RemoteException e) {

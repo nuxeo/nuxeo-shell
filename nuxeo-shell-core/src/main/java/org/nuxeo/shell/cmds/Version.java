@@ -22,7 +22,6 @@ import org.nuxeo.shell.Shell;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "version", help = "Print Nuxeo Shell Version")
 public class Version implements Runnable {

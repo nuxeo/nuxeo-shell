@@ -27,7 +27,6 @@ import org.nuxeo.shell.automation.RemoteContext;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "cp", help = "Copy a document")
 public class Cp implements Runnable {
@@ -50,8 +49,7 @@ public class Cp implements Runnable {
         try {
             ctx.getDocumentService().copy(srcRef, dstRef, name);
         } catch (Exception e) {
-            throw new ShellException("Failed to copy document " + srcRef
-                    + " to " + dstRef, e);
+            throw new ShellException("Failed to copy document " + srcRef + " to " + dstRef, e);
         }
 
     }

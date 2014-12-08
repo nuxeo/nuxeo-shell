@@ -28,7 +28,6 @@ import org.nuxeo.shell.swing.widgets.JFontChooser;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "font", help = "Modify the font used by the shell. This command is available only in UI mode.")
 public class FontCommand implements Runnable {

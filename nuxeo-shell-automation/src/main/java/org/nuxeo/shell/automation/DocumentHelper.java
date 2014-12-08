@@ -22,7 +22,6 @@ import org.nuxeo.shell.utils.Path;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class DocumentHelper {
 
@@ -34,8 +33,7 @@ public class DocumentHelper {
         console.println(name);
     }
 
-    public static void printName(ShellConsole console, Document doc,
-            String prefix) {
+    public static void printName(ShellConsole console, Document doc, String prefix) {
         String name = new Path(doc.getPath()).lastSegment();
         if (name == null) {
             name = "/";

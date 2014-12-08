@@ -25,7 +25,6 @@ import org.nuxeo.shell.equinox.Connector;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "bundle", help = "Display details for the specified bundle(s)")
 public class Bundle implements Runnable {

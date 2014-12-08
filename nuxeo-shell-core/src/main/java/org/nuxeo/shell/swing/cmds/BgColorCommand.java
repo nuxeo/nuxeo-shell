@@ -30,7 +30,6 @@ import org.nuxeo.shell.swing.Theme;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "background", help = "Modify the background color used by the shell. This command is available only in UI mode.")
 public class BgColorCommand implements Runnable {
@@ -43,12 +42,10 @@ public class BgColorCommand implements Runnable {
 
     public void run() {
         try {
-            DefaultColorSelectionModel model = new DefaultColorSelectionModel(
-                    console.getBackground());
+            DefaultColorSelectionModel model = new DefaultColorSelectionModel(console.getBackground());
             JColorChooser cc = new JColorChooser();
             cc.setSelectionModel(model);
-            Color color = JColorChooser.showDialog(console,
-                    "Select the background color", console.getBackground());
+            Color color = JColorChooser.showDialog(console, "Select the background color", console.getBackground());
             if (color != null) {
                 Theme theme = console.getTheme();
                 theme.setName("Custom");

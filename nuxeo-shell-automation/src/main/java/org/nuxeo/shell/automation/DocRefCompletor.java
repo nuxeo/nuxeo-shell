@@ -29,7 +29,6 @@ import org.nuxeo.shell.utils.Path;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class DocRefCompletor implements Completor {
 
@@ -88,8 +87,7 @@ public class DocRefCompletor implements Completor {
             }
             return clist.isEmpty() ? -1 : 0;
         } catch (Exception e) {
-            throw new ShellException("Failed to gather children for " + buffer,
-                    e);
+            throw new ShellException("Failed to gather children for " + buffer, e);
         }
     }
 }

@@ -22,7 +22,6 @@ import org.nuxeo.shell.Shell;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 public class OperationNameCompletor extends SimpleCompletor {
 
@@ -33,6 +32,6 @@ public class OperationNameCompletor extends SimpleCompletor {
     }
 
     public OperationNameCompletor(RemoteContext ctx) {
-        super (ctx.getSession().getOperations().keySet().toArray(new String[0]));
+        super(ctx.getSession().getOperations().keySet().toArray(new String[0]));
     }
 }
