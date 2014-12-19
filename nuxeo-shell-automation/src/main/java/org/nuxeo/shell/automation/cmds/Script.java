@@ -65,7 +65,7 @@ public class Script implements Runnable {
             }
         }
         try {
-            String scriptOutput = Scripting.runScript(ctx, blob, args, timeout);
+            String scriptOutput = Scripting.runScript(ctx, blob, args);
             if (scriptOutput != null) {
                 ANSIBuffer buf = Shell.get().newANSIBuffer();
                 ANSICodes.appendTemplate(buf, scriptOutput, false);
