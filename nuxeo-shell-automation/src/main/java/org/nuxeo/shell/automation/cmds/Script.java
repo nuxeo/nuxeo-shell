@@ -1,10 +1,10 @@
 /*
- * (C) Copyright 2006-2010 Nuxeo SAS (http://nuxeo.com/) and contributors.
+ * (C) Copyright 2006-2014 Nuxeo SA (http://nuxeo.com/) and contributors.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the GNU Lesser General Public License
  * (LGPL) version 2.1 which accompanies this distribution, and is available at
- * http://www.gnu.org/licenses/lgpl.html
+ * http://www.gnu.org/licenses/lgpl-2.1.html
  *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -37,7 +37,6 @@ import org.nuxeo.shell.utils.StringUtils;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
- *
  */
 @Command(name = "script", help = "Run a script on the server")
 public class Script implements Runnable {
@@ -54,6 +53,7 @@ public class Script implements Runnable {
     @Argument(name = "file", index = 0, required = true, help = "The script file. Must have a .mvel or .groovy extension")
     protected File file;
 
+    @Override
     public void run() {
         ShellConsole console = ctx.getShell().getConsole();
         FileBlob blob = new FileBlob(file);
@@ -65,10 +65,12 @@ public class Script implements Runnable {
             }
         }
         try {
-            ANSIBuffer buf = Shell.get().newANSIBuffer();
-            ANSICodes.appendTemplate(buf, Scripting.runScript(ctx, blob, args),
-                    false);
-            console.println(buf.toString());
+            String scriptOutput = Scripting.runScript(ctx, blob, args, timeout);
+            if (scriptOutput != null) {
+                ANSIBuffer buf = Shell.get().newANSIBuffer();
+                ANSICodes.appendTemplate(buf, scriptOutput, false);
+                console.println(buf.toString());
+            }
         } catch (Exception e) {
             throw new ShellException("Failed to run script", e);
         }
