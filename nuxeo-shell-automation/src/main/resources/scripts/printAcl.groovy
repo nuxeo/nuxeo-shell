@@ -23,7 +23,7 @@ if (aclname != null) {
     for (a in acp.getACLs()) {
       result+=a.getName()+" ";
     }
-    return result;
+    println(result);
   }
   result = "{bold}${aclname}{bold}\n";
   for (ace in acl) {
@@ -38,5 +38,4 @@ if (aclname != null) {
     }
   }
 }
-
-return result;
+println(result);
