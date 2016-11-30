@@ -18,8 +18,7 @@
  */
 package org.nuxeo.shell.automation.cmds;
 
-import org.nuxeo.ecm.automation.client.model.PathRef;
-import org.nuxeo.ecm.automation.client.model.PropertyMap;
+import org.nuxeo.ecm.automation.client.model.Document;
 import org.nuxeo.shell.Argument;
 import org.nuxeo.shell.Command;
 import org.nuxeo.shell.Context;
@@ -50,13 +49,12 @@ public class MkDir implements Runnable {
 
     public void run() {
         Path p = ctx.resolvePath(path);
-        PathRef parent = new PathRef(p.getParent().toString());
-        PropertyMap props = new PropertyMap();
+        Document document = new Document(p.lastSegment(), type);
         if (title != null) {
-            props.set("dc:title", title);
+            document.set("dc:title", title);
         }
         try {
-            ctx.getDocumentService().createDocument(parent, type, p.lastSegment(), props);
+            ctx.getDocumentService().createDocument(p.getParent().toString(), document);
         } catch (Exception e) {
             throw new ShellException(e);
         }

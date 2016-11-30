@@ -18,8 +18,7 @@
  */
 package org.nuxeo.shell.automation.cmds;
 
-import org.nuxeo.ecm.automation.client.model.DocRef;
-import org.nuxeo.ecm.automation.client.model.PropertyMap;
+import org.nuxeo.ecm.automation.client.model.Document;
 import org.nuxeo.shell.Argument;
 import org.nuxeo.shell.Command;
 import org.nuxeo.shell.Context;
@@ -48,14 +47,13 @@ public class Update implements Runnable {
     protected String path;
 
     public void run() {
-        DocRef doc = ctx.resolveRef(path);
+        Document doc = ctx.resolveDocument(path);
         try {
-            PropertyMap map = new PropertyMap();
             for (String pair : props.split(sep)) {
                 String[] ar = StringUtils.split(pair, '=', true);
-                map.set(ar[0], ar[1]);
+                doc.set(ar[0], ar[1]);
             }
-            ctx.getDocumentService().update(doc, map);
+            ctx.getDocumentService().update(doc);
         } catch (Exception e) {
             throw new ShellException(e);
         }
