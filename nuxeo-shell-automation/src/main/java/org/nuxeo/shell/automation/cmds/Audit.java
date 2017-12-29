@@ -23,8 +23,6 @@ import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.codehaus.jackson.JsonNode;
-import org.codehaus.jackson.map.ObjectMapper;
 import org.nuxeo.ecm.automation.client.OperationRequest;
 import org.nuxeo.ecm.automation.client.model.Blob;
 import org.nuxeo.ecm.automation.client.model.FileBlob;
@@ -38,6 +36,9 @@ import org.nuxeo.shell.automation.RemoteContext;
 import org.nuxeo.shell.fs.FileCompletor;
 import org.nuxeo.shell.fs.FileSystem;
 import org.nuxeo.shell.utils.StringUtils;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
@@ -98,9 +99,9 @@ public class Audit implements Runnable {
     private final void printString(ShellConsole console, JsonNode obj, String key) {
         JsonNode v = obj.get(key);
         if (v != null) {
-            String s = v.getTextValue();
+            String s = v.textValue();
             if (s != null) {
-                console.print(v.getTextValue());
+                console.print(v.textValue());
                 return;
             }
         }
@@ -110,7 +111,7 @@ public class Audit implements Runnable {
     private final void printDate(ShellConsole console, JsonNode obj, String key, SimpleDateFormat fmt) {
         JsonNode v = obj.get(key);
         if (v != null) {
-            console.print(fmt.format(new Date(v.getValueAsLong())));
+            console.print(fmt.format(new Date(v.asLong())));
         } else {
             console.print("[null]");
         }
