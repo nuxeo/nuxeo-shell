@@ -176,11 +176,8 @@ public class Help implements Runnable {
 
         String[] aliases = cmd.getAliases();
         if (aliases != null && aliases.length > 0) {
-            if (aliases != null && aliases.length > 0) {
-                header(buf, "ALIASES", wiki).append(ShellConsole.CRLF).append("\t").append(
-                        StringUtils.join(aliases, ", "));
-                buf.append(ShellConsole.CRLF).append(ShellConsole.CRLF);
-            }
+            header(buf, "ALIASES", wiki).append(ShellConsole.CRLF).append("\t").append(StringUtils.join(aliases, ", "));
+            buf.append(ShellConsole.CRLF).append(ShellConsole.CRLF);
         }
 
         List<Token> args = cmd.getArguments();

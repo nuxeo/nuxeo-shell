@@ -37,12 +37,6 @@ import org.nuxeo.shell.ShellException;
  */
 public class DefaultCommandType extends AbstractCommandType {
 
-    protected List<Setter> injectable;
-
-    protected Map<String, Token> params;
-
-    protected List<Token> args;
-
     @SuppressWarnings("unchecked")
     public static DefaultCommandType fromAnnotatedClass(String className) throws ShellException {
         Class<Runnable> cls;
