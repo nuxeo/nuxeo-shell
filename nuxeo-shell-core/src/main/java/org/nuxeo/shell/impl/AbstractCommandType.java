@@ -132,10 +132,7 @@ public abstract class AbstractCommandType implements CommandType {
         if (index == -1 || index >= args.size()) {
             return null;
         }
-        if (args != null) {
-            return args.get(index);
-        }
-        return null;
+        return args.get(index);
     }
 
     protected Completor getParamCompletor(String prefix) {
