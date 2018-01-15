@@ -161,7 +161,7 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
             if (!((Boolean) complete.invoke(reader))) {
                 beep();
             }
-        } catch (Exception e) {
+        } catch (ReflectiveOperationException e) {
             throw new RuntimeException(e);
         } finally {
             cline = null;
@@ -183,25 +183,21 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
     }
 
     public void execute() {
-        try {
-            String cmd = getCmdLine().getText().trim();
-            append("\n");
-            setCaretPosition(getDocument().getLength());
-            if (pwd != null) {
-                cline = null;
-                in.put(pwd.toString() + "\n");
-                pwd = null;
-                return;
-            }
-            if (cmd.length() > 0 && reader.getUseHistory()) {
-                reader.getHistory().addToHistory(cmd);
-                reader.getHistory().moveToEnd();
-            }
+        String cmd = getCmdLine().getText().trim();
+        append("\n");
+        setCaretPosition(getDocument().getLength());
+        if (pwd != null) {
             cline = null;
-            in.put(cmd + "\n");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+            in.put(pwd.toString() + "\n");
+            pwd = null;
+            return;
         }
+        if (cmd.length() > 0 && reader.getUseHistory()) {
+            reader.getHistory().addToHistory(cmd);
+            reader.getHistory().moveToEnd();
+        }
+        cline = null;
+        in.put(cmd + "\n");
     }
 
     public ConsoleReader getConsoleReader() {
@@ -270,7 +266,8 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
         try {
             Thread.sleep(10);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
+            throw new RuntimeException(e);
         }
         setBackground(Color.BLACK);
     }
@@ -336,40 +333,47 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
                 killLineAfter();
                 return true;
             }
+            return false;
         case KeyEvent.VK_U:
             if (event.isMetaDown()) {
                 killLineBefore();
                 return true;
             }
+            return false;
         case KeyEvent.VK_L:
             if (event.isMetaDown()) {
                 killLine();
                 return true;
             }
+            return false;
         case KeyEvent.VK_X:
             if (event.isMetaDown()) {
                 reset();
                 in.put("\n");
                 return true;
             }
+            return false;
         case KeyEvent.VK_I:
             if (event.isMetaDown()) {
                 Font font = new Font(Font.MONOSPACED, Font.PLAIN, getFont().getSize() + 1);
                 setFont(font);
                 return true;
             }
+            return false;
         case KeyEvent.VK_O:
             if (event.isMetaDown()) {
                 Font font = new Font(Font.MONOSPACED, Font.PLAIN, getFont().getSize() - 1);
                 setFont(font);
                 return true;
             }
+            return false;
         case KeyEvent.VK_EQUALS:
             if (event.isMetaDown()) {
                 Font font = new Font(Font.MONOSPACED, Font.PLAIN, 14);
                 setFont(font);
                 return true;
             }
+            return false;
         case KeyEvent.VK_S:
             if (event.isMetaDown()) {
                 if (finder != null) {
@@ -379,6 +383,8 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
                     return true;
                 }
             }
+            return false;
+        default:
         }
         return false;
     }
@@ -388,12 +394,12 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
 
         public synchronized void put(int key) {
             buf.append((char) key);
-            notify();
+            notifyAll();
         }
 
         public synchronized void put(String text) {
             buf.append(text);
-            notify();
+            notifyAll();
         }
 
         @Override
@@ -406,7 +412,8 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
             try {
                 wait();
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Thread.currentThread().interrupt();
+                throw new RuntimeException(e);
             }
             if (buf.length() == 0) {
                 throw new IllegalStateException("invalid state for console input stream");
