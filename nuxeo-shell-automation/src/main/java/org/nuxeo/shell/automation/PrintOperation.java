@@ -18,13 +18,16 @@
  */
 package org.nuxeo.shell.automation;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 import java.io.File;
 import java.io.InputStream;
+import java.util.Base64;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
-import org.nuxeo.ecm.automation.client.jaxrs.util.Base64;
-import org.nuxeo.ecm.automation.client.jaxrs.util.IOUtils;
 import org.nuxeo.shell.Argument;
 import org.nuxeo.shell.Command;
 import org.nuxeo.shell.Context;
@@ -52,21 +55,24 @@ public class PrintOperation implements Runnable {
     @Argument(name = "operation", index = 0, required = false, completor = OperationNameCompletor.class, help = "The opertation to print.")
     protected String name;
 
+    @Override
     public void run() {
         try {
             String url = ctx.getClient().getBaseUrl();
             HttpGet get = new HttpGet(url + (name == null ? "" : name));
             if (u != null && p != null) {
                 // TODO be able to reuse the context of the automation client
-                get.setHeader("Authorization", "Basic " + Base64.encode(u + ":" + p));
+                String base64 = Base64.getEncoder().encodeToString((u + ":" + p).getBytes(UTF_8));
+                get.setHeader("Authorization", "Basic " + base64);
             }
             HttpResponse r = ctx.getClient().http().execute(get);
-            InputStream in = r.getEntity().getContent();
-            String content = IOUtils.read(in);
-            if (out == null) {
-                ctx.getShell().getConsole().println(content);
-            } else {
-                IOUtils.writeToFile(content, out);
+            try (InputStream in = r.getEntity().getContent()) {
+                String content = IOUtils.toString(in, UTF_8);
+                if (out == null) {
+                    ctx.getShell().getConsole().println(content);
+                } else {
+                    FileUtils.writeStringToFile(out, content, UTF_8);
+                }
             }
         } catch (Exception e) {
             throw new ShellException(e);
