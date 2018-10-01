@@ -91,9 +91,8 @@ public class Help implements Runnable {
 
     public void showMainPage(ShellConsole console) {
         ANSIBuffer buf = shell.newANSIBuffer();
-        InputStream in = getClass().getClassLoader().getResourceAsStream("META-INF/help.txt");
-        if (in != null) {
-            try {
+        try (InputStream in = getClass().getClassLoader().getResourceAsStream("META-INF/help.txt")) {
+            if (in != null) {
                 String content = FileSystem.readContent(in);
                 String versionVar = "${version}";
                 int i = content.indexOf(versionVar);
@@ -103,15 +102,9 @@ public class Help implements Runnable {
                 }
                 ANSICodes.appendTemplate(buf, content, false);
                 buf.append(ShellConsole.CRLF);
-            } catch (IOException e) {
-                throw new ShellException(e);
-            } finally {
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
+        } catch (IOException e) {
+            throw new ShellException(e);
         }
 
         console.println(buf.toString());
@@ -206,21 +199,14 @@ public class Help implements Runnable {
             buf.append(ShellConsole.CRLF);
         }
 
-        InputStream in = cmd.getCommandClass().getResourceAsStream(cmd.getCommandClass().getSimpleName() + ".help");
-        if (in != null) {
-            try {
+        try (InputStream in = cmd.getCommandClass().getResourceAsStream(cmd.getCommandClass().getSimpleName() + ".help")) {
+            if (in != null) {
                 String content = FileSystem.readContent(in);
                 ANSICodes.appendTemplate(buf, content, wiki);
                 buf.append(ShellConsole.CRLF);
-            } catch (IOException e) {
-                throw new ShellException(e);
-            } finally {
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
+        } catch (IOException e) {
+            throw new ShellException(e);
         }
         return buf;
     }

@@ -113,7 +113,7 @@ public class Interactive implements Runnable, ShellConsole {
             } catch (Throwable t) {
                 handleError(t);
             }
-            while (true) {
+            while (true) { // NOSONAR (exit through System.exit)
                 try {
                     String cmdline = console.readLine(getPrompt());
                     currentCmdLine = cmdline;
@@ -134,7 +134,7 @@ public class Interactive implements Runnable, ShellConsole {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); // NOSONAR (log on console on purpose)
             System.exit(1);
         } finally {
             closeHistory();
