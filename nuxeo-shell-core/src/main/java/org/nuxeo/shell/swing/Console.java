@@ -404,19 +404,13 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
 
         @Override
         public synchronized int read() throws IOException {
-            if (buf.length() > 0) {
-                char c = buf.charAt(0);
-                buf.deleteCharAt(0);
-                return c;
-            }
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                throw new RuntimeException(e);
-            }
-            if (buf.length() == 0) {
-                throw new IllegalStateException("invalid state for console input stream");
+            while (buf.length() == 0) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    throw new RuntimeException(e);
+                }
             }
             char c = buf.charAt(0);
             buf.deleteCharAt(0);
