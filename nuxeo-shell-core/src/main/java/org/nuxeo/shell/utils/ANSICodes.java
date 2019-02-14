@@ -76,7 +76,7 @@ public class ANSICodes {
 
     public static final int BG_WHITE = 47;
 
-    protected static Map<String, Integer> map = new HashMap<String, Integer>();
+    protected static Map<String, Integer> map = new HashMap<>();
 
     static {
         map.put("off", OFF);
@@ -121,12 +121,20 @@ public class ANSICodes {
         int code = getCode(codeKey);
         if (code > -1) {
             if (wiki && code == BOLD) {
-                buf.append("*" + text + "*");
+                buf.append("*")
+                   .append(text)
+                   .append("*");
             } else {
                 buf.attrib(text, code);
             }
         } else if (wiki) {
-            buf.append("{" + codeKey + "}" + text + "{" + codeKey + "}");
+            buf.append("{")
+               .append(codeKey)
+               .append("}")
+               .append(text)
+               .append("{")
+               .append(codeKey)
+               .append("}");
         } else {
             buf.append(text);
         }

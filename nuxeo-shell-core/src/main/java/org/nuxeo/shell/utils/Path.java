@@ -511,18 +511,18 @@ public class Path implements Serializable {
         if (len == 0) {
             return (flags & HAS_LEADING) != 0 ? "/" : "";
         }
-        StringBuilder buf = new StringBuilder(len * 16);
+        StringBuilder sb = new StringBuilder(len * 16);
         if ((flags & HAS_LEADING) != 0) {
-            buf.append(SEP);
+            sb.append(SEP);
         }
-        buf.append(segments[0]);
+        sb.append(segments[0]);
         for (int i = 1; i < len; i++) {
-            buf.append(SEP).append(segments[i]);
+            sb.append(SEP).append(segments[i]);
         }
         if ((flags & HAS_TRAILING) != 0) {
-            buf.append(SEP);
+            sb.append(SEP);
         }
-        return buf.toString();
+        return sb.toString();
     }
 
 }

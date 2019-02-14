@@ -36,12 +36,12 @@ public class Version implements Runnable {
     }
 
     public static String getVersionMessage() {
-        StringBuilder buf = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         String crlf = System.getProperty("line.separator");
         for (String v : Shell.get().getVersions()) {
-            buf.append(v).append(crlf);
+            sb.append(v).append(crlf);
         }
-        return buf.toString();
+        return sb.toString();
     }
 
     public static String getShellVersion() {

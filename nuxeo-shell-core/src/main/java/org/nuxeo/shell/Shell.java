@@ -309,14 +309,14 @@ public final class Shell {
 
     public String[] parse(char[] cbuf) {
         ArrayList<String> result = new ArrayList<String>();
-        StringBuilder buf = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         boolean esc = false;
         char quote = 0;
         for (int i = 0; i < cbuf.length; i++) {
             char c = cbuf[i];
             if (esc) {
                 esc = false;
-                buf.append(c);
+                sb.append(c);
                 continue;
             }
             switch (c) {
@@ -325,19 +325,19 @@ public final class Shell {
             case '\r':
             case '\n':
                 if (quote != 0) {
-                    buf.append(c);
-                } else if (buf.length() > 0) {
-                    result.add(buf.toString());
-                    buf = new StringBuilder();
+                    sb.append(c);
+                } else if (sb.length() > 0) {
+                    result.add(sb.toString());
+                    sb = new StringBuilder();
                 }
                 break;
             case '"':
                 if (quote == '"') {
                     quote = 0;
-                    result.add(buf.toString());
-                    buf = new StringBuilder();
-                } else if (buf.length() > 0) {
-                    buf.append(c);
+                    result.add(sb.toString());
+                    sb = new StringBuilder();
+                } else if (sb.length() > 0) {
+                    sb.append(c);
                 } else {
                     quote = c;
                 }
@@ -345,10 +345,10 @@ public final class Shell {
             case '\'':
                 if (quote == '\'') {
                     quote = 0;
-                    result.add(buf.toString());
-                    buf = new StringBuilder();
-                } else if (buf.length() > 0) {
-                    buf.append(c);
+                    result.add(sb.toString());
+                    sb = new StringBuilder();
+                } else if (sb.length() > 0) {
+                    sb.append(c);
                 } else {
                     quote = c;
                 }
@@ -357,12 +357,12 @@ public final class Shell {
                 esc = true;
                 break;
             default:
-                buf.append(c);
+                sb.append(c);
                 break;
             }
         }
-        if (buf.length() > 0) {
-            result.add(buf.toString());
+        if (sb.length() > 0) {
+            result.add(sb.toString());
         }
         return result.toArray(new String[result.size()]);
     }

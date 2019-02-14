@@ -33,12 +33,12 @@ public class StringUtils {
         if (ar.length == 1) {
             return ar[0];
         }
-        StringBuilder buf = new StringBuilder();
-        buf.append(ar[0]);
+        StringBuilder sb = new StringBuilder();
+        sb.append(ar[0]);
         for (int i = 1; i < ar.length; i++) {
-            buf.append(delim).append(ar[i]);
+            sb.append(delim).append(ar[i]);
         }
-        return buf.toString();
+        return sb.toString();
     }
 
     public static String join(List<String> ar, String delim) {

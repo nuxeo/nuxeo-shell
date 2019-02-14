@@ -163,13 +163,13 @@ public class FileSystem implements ShellFeature {
     }
 
     public static String readContent(InputStream in) throws IOException {
-        StringBuilder buf = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         byte[] bytes = new byte[1024 * 16];
         int r = -1;
         while ((r = in.read(bytes)) > -1) {
-            buf.append(new String(bytes, 0, r));
+            sb.append(new String(bytes, 0, r));
         }
-        return buf.toString();
+        return sb.toString();
     }
 
     public static List<String> readLines(InputStream in) throws IOException {
