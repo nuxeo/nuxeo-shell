@@ -74,15 +74,15 @@ public abstract class AbstractCommandType implements CommandType {
                 }
             }
         }
-        StringBuilder buf = new StringBuilder();
-        buf.append(getName());
+        StringBuilder sb = new StringBuilder();
+        sb.append(getName());
         if (!params.isEmpty()) {
-            buf.append(" [options]");
+            sb.append(" [options]");
         }
         for (String name : argNames) {
-            buf.append(" ").append(name);
+            sb.append(" ").append(name);
         }
-        return buf.toString();
+        return sb.toString();
     }
 
     public Runnable newInstance(Shell shell, String... line) throws ShellException {

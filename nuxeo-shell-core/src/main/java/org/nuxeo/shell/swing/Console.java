@@ -390,21 +390,21 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
     }
 
     class In extends InputStream {
-        protected StringBuilder buf = new StringBuilder();
+        protected StringBuilder sb = new StringBuilder();
 
         public synchronized void put(int key) {
-            buf.append((char) key);
+            sb.append((char) key);
             notifyAll();
         }
 
         public synchronized void put(String text) {
-            buf.append(text);
+            sb.append(text);
             notifyAll();
         }
 
         @Override
         public synchronized int read() throws IOException {
-            while (buf.length() == 0) {
+            while (sb.length() == 0) {
                 try {
                     wait();
                 } catch (InterruptedException e) {
@@ -412,8 +412,8 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
                     throw new RuntimeException(e);
                 }
             }
-            char c = buf.charAt(0);
-            buf.deleteCharAt(0);
+            char c = sb.charAt(0);
+            sb.deleteCharAt(0);
             return c;
         }
     }
@@ -452,15 +452,15 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
                     _write(cbuf, off, len);
                 }
             } else {
-                StringBuilder buf = new StringBuilder();
+                StringBuilder sb = new StringBuilder();
                 for (int i = off, end = off + len; i < end; i++) {
                     char c = cbuf[i];
                     if (!handleOutputChar(c)) {
-                        buf.append(c);
+                        sb.append(c);
                     }
                 }
-                if (buf.length() > 0) {
-                    _write(buf.toString());
+                if (sb.length() > 0) {
+                    _write(sb.toString());
                 }
             }
         }
@@ -508,11 +508,11 @@ public class Console extends JTextArea implements ConsoleReaderFactory {
         if (pad <= 0) {
             return text;
         }
-        StringBuilder buf = new StringBuilder(text);
+        StringBuilder sb = new StringBuilder(text);
         for (int i = 0; i < pad; i++) {
-            buf.append(' ');
+            sb.append(' ');
         }
-        return buf.toString();
+        return sb.toString();
     }
 
     public void reset() {

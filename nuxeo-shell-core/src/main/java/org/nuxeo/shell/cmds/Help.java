@@ -28,23 +28,23 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
-import jline.ANSIBuffer;
-
 import org.nuxeo.shell.Argument;
 import org.nuxeo.shell.Command;
 import org.nuxeo.shell.CommandRegistry;
 import org.nuxeo.shell.CommandType;
+import org.nuxeo.shell.CommandType.Token;
 import org.nuxeo.shell.Context;
 import org.nuxeo.shell.Parameter;
 import org.nuxeo.shell.Shell;
 import org.nuxeo.shell.ShellConsole;
 import org.nuxeo.shell.ShellException;
-import org.nuxeo.shell.CommandType.Token;
 import org.nuxeo.shell.cmds.completors.CommandRegistryCompletor;
 import org.nuxeo.shell.fs.FileCompletor;
 import org.nuxeo.shell.fs.FileSystem;
 import org.nuxeo.shell.utils.ANSICodes;
 import org.nuxeo.shell.utils.StringUtils;
+
+import jline.ANSIBuffer;
 
 /**
  * @author <a href="mailto:bs@nuxeo.com">Bogdan Stefanescu</a>
@@ -64,6 +64,7 @@ public class Help implements Runnable {
     @Parameter(name = "-ns", hasValue = true, completor = CommandRegistryCompletor.class, help = "[optional] - to be used to filter commands by namespaces when generating the documentation. By default all namespaces are dumped.")
     protected CommandRegistry ns;
 
+    @Override
     public void run() {
         ShellConsole console = shell.getConsole();
         if (export != null) {
@@ -123,7 +124,7 @@ public class Help implements Runnable {
     }
 
     public void exportCommands(Shell shell, File file) throws Exception {
-        HashMap<String, StringBuilder> wikis = new HashMap<String, StringBuilder>();
+        HashMap<String, StringBuilder> wikis = new HashMap<>();
         for (String name : shell.getRegistryNames()) {
             StringBuilder sb = new StringBuilder();
             writeRegistry(shell.getRegistry(name), sb);
@@ -142,9 +143,12 @@ public class Help implements Runnable {
     }
 
     protected void writeRegistry(CommandRegistry reg, StringBuilder sb) {
-        sb.append("{info:title=Namespce: *" + reg.getName() + "*}" + reg.getDescription());
-        sb.append("{info}\nh1. Index\n{toc:minLevel=2|maxLevel=2}\n\n");
-        HashSet<String> aliases = new HashSet<String>();
+        sb.append("{info:title=Namespce: *")
+          .append(reg.getName())
+          .append("*}")
+          .append(reg.getDescription())
+          .append("{info}\nh1. Index\n{toc:minLevel=2|maxLevel=2}\n\n");
+        HashSet<String> aliases = new HashSet<>();
         for (CommandType cmd : reg.getLocalCommandTypes()) {
             if (!aliases.contains(cmd.getName())) {
                 writeCommand(cmd, sb);
@@ -183,7 +187,11 @@ public class Help implements Runnable {
                     buf.append("*");
                 }
                 String flag = tok.isRequired ? " - " : " - [flag] - ";
-                buf.append("\t" + tok.name + flag + tok.help).append(ShellConsole.CRLF);
+                buf.append("\t")
+                   .append(tok.name)
+                   .append(flag)
+                   .append(tok.help)
+                   .append(ShellConsole.CRLF);
             }
             buf.append(ShellConsole.CRLF);
         }
@@ -194,7 +202,11 @@ public class Help implements Runnable {
                     buf.append("*");
                 }
                 String flag = tok.isRequired ? " - [required] - " : " - [optional] -";
-                buf.append("\t" + tok.name + flag + tok.help).append(ShellConsole.CRLF);
+                buf.append("\t")
+                   .append(tok.name)
+                   .append(flag)
+                   .append(tok.help)
+                   .append(ShellConsole.CRLF);
             }
             buf.append(ShellConsole.CRLF);
         }

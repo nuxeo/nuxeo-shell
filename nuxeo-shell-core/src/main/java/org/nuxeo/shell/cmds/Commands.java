@@ -123,10 +123,10 @@ public class Commands implements Runnable {
     }
 
     protected String makePrefix(int len) {
-        StringBuilder buf = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < len; i++) {
-            buf.append(' ');
+            sb.append(' ');
         }
-        return buf.toString();
+        return sb.toString();
     }
 }
