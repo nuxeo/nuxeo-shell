@@ -163,7 +163,7 @@ public class OperationCommandType extends AbstractCommandType {
 
     @Override
     protected Runnable createInstance(Shell shell) throws Exception {
-        OperationCommand cmd = (OperationCommand) cmdClass.newInstance();
+        OperationCommand cmd = (OperationCommand) cmdClass.getDeclaredConstructor().newInstance();
         cmd.init(this, shell, op);
         return cmd;
     }
