@@ -97,7 +97,7 @@ public abstract class AbstractCommandType implements CommandType {
     }
 
     protected Runnable createInstance(Shell shell) throws Exception {
-        return cmdClass.newInstance();
+        return cmdClass.getDeclaredConstructor().newInstance();
     }
 
     /**
@@ -161,7 +161,7 @@ public abstract class AbstractCommandType implements CommandType {
         }
         if (arg.completor != null && !arg.completor.isInterface()) {
             try {
-                return arg.completor.newInstance();
+                return arg.completor.getDeclaredConstructor().newInstance();
             } catch (Throwable t) {
                 throw new ShellException("Failed to load completor: " + arg.completor, t);
             }
