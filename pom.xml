@@ -2,8 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.nuxeo</groupId>
-    <artifactId>nuxeo-addons-parent</artifactId>
-    <version>10.10</version>
+    <artifactId>nuxeo-ecm</artifactId>
+    <version>11.1-SNAPSHOT</version>
   </parent>
 
   <groupId>org.nuxeo.shell</groupId>
@@ -13,11 +13,8 @@
   <description>Nuxeo Shell is providing a command line interface to Nuxeo Servers</description>
   <packaging>pom</packaging>
 
-  <properties>
-    <nuxeo.automation.cient.version>10.10</nuxeo.automation.cient.version>
-  </properties>
-
   <modules>
+    <module>nuxeo-automation-client</module>
     <module>nuxeo-shell-core</module>
     <module>nuxeo-shell-automation</module>
     <module>nuxeo-shell-equinox</module>
@@ -64,11 +61,10 @@
         <artifactId>nuxeo-shell-equinox</artifactId>
         <version>${project.version}</version>
       </dependency>
-      <!-- 10.10 -->
       <dependency>
-        <groupId>org.nuxeo.ecm.automation</groupId>
+        <groupId>org.nuxeo.shell</groupId>
         <artifactId>nuxeo-automation-client</artifactId>
-        <version>${nuxeo.automation.cient.version}</version>
+        <version>${project.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

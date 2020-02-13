@@ -15,7 +15,7 @@
       <artifactId>nuxeo-shell-core</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.nuxeo.ecm.automation</groupId>
+      <groupId>org.nuxeo.shell</groupId>
       <artifactId>nuxeo-automation-client</artifactId>
       <exclusions>
         <exclusion>
