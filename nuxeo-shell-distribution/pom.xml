@@ -128,23 +128,6 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <artifactId>maven-jarsigner-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <storetype>${keystore.type}</storetype>
-          <keystore>${keystore.path}</keystore>
-          <alias>${keystore.alias}</alias>
-          <storepass>${keystore.password}</storepass>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
 </project>
